@@ -12,3 +12,9 @@ export const months = [
   "November",
   "December",
 ];
+
+export const yearRange = (from, to) => {
+  const currentYear = new Date().getFullYear();
+  const totalYears = currentYear > to ? currentYear + 1 - from : to + 1 - from;
+  return Array.from({ length: totalYears }, (_, year) => from + year);
+};

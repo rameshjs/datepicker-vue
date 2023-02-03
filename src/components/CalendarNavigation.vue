@@ -37,7 +37,10 @@
           />
         </svg>
       </button>
-      <button class="p-2 hover:bg-slate-100 rounded flex items-center">
+      <button
+        class="p-2 hover:bg-slate-100 rounded flex items-center"
+        @click="selectYear"
+      >
         Year
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -74,9 +77,13 @@
   </div>
 </template>
 <script setup>
-const emit = defineEmits(["month-select"]);
+const emit = defineEmits(["month-select", "year-select"]);
 
 const selectMonth = () => {
   emit("month-select");
+};
+
+const selectYear = () => {
+  emit("year-select");
 };
 </script>

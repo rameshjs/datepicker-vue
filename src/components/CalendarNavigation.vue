@@ -17,7 +17,10 @@
       </svg>
     </button>
     <div class="flex">
-      <button class="p-2 hover:bg-slate-100 rounded mr-2 flex items-center">
+      <button
+        class="p-2 hover:bg-slate-100 rounded mr-2 flex items-center"
+        @click="selectMonth"
+      >
         Month
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +37,10 @@
           />
         </svg>
       </button>
-      <button class="p-2 hover:bg-slate-100 rounded flex items-center">
+      <button
+        class="p-2 hover:bg-slate-100 rounded flex items-center"
+        @click="selectYear"
+      >
         Year
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -70,3 +76,14 @@
     </button>
   </div>
 </template>
+<script setup>
+const emit = defineEmits(["toggle", "month-select", "year-select"]);
+
+const selectMonth = () => {
+  emit("toggle", "month-select");
+};
+
+const selectYear = () => {
+  emit("toggle", "year-select");
+};
+</script>

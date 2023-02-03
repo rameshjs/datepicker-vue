@@ -77,13 +77,13 @@
   </div>
 </template>
 <script setup>
-const emit = defineEmits(["month-select", "year-select"]);
+const emit = defineEmits(["toggle", "month-select", "year-select"]);
 
 const selectMonth = () => {
-  emit("month-select");
+  emit("toggle", "month-select");
 };
 
 const selectYear = () => {
-  emit("year-select");
+  emit("toggle", "year-select");
 };
 </script>

@@ -1,14 +1,12 @@
 <template>
   <div>
-    <CalendarNavigation
-      @month-select="monthPicker = !monthPicker"
-      @year-select="yearPicker = !yearPicker"
-    />
+    <CalendarNavigation @toggle="toggle" />
     <MonthWrapper
       v-model:month="selectedMonth"
       v-model:year="selectedYear"
       :showMonthPicker="monthPicker"
       :showYearPicker="yearPicker"
+      @close-picker="closePicker"
     />
     {{ selectedYear }}
   </div>
@@ -33,4 +31,19 @@ defineProps({
     default: new Date().getFullYear(),
   },
 });
+
+const toggle = (event) => {
+  if (event === "month-select") {
+    monthPicker.value = true;
+    yearPicker.value = false;
+  } else {
+    yearPicker.value = true;
+    monthPicker.value = false;
+  }
+};
+
+const closePicker = () => {
+  monthPicker.value = false;
+  yearPicker.value = false;
+};
 </script>

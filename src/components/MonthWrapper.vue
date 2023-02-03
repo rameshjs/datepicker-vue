@@ -9,7 +9,7 @@ import MonthPicker from "./MonthPicker.vue";
 import YearPicker from "./YearPicker.vue";
 import { computed } from "vue";
 
-const emit = defineEmits(["update:month", "update:year"]);
+const emit = defineEmits(["update:month", "update:year", "close-picker"]);
 
 const props = defineProps({
   month: {
@@ -36,6 +36,7 @@ const month = computed({
   },
   set(month) {
     emit("update:month", month);
+    emit("close-picker");
   },
 });
 
@@ -45,6 +46,7 @@ const year = computed({
   },
   set(year) {
     emit("update:year", year);
+    emit("close-picker");
   },
 });
 </script>

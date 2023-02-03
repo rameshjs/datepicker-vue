@@ -18,10 +18,10 @@
     </button>
     <div class="flex">
       <button
-        class="p-2 hover:bg-slate-100 rounded mr-2 flex items-center"
+        class="p-2 hover:bg-slate-100 rounded mr-2 flex items-center font-bold"
         @click="selectMonth"
       >
-        Month
+        {{ months[month] }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -38,10 +38,10 @@
         </svg>
       </button>
       <button
-        class="p-2 hover:bg-slate-100 rounded flex items-center"
+        class="p-2 hover:bg-slate-100 rounded flex items-center font-bold"
         @click="selectYear"
       >
-        Year
+        {{ year }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -77,7 +77,20 @@
   </div>
 </template>
 <script setup>
+import { months } from "../utils/datepicker";
+
 const emit = defineEmits(["toggle", "month-select", "year-select"]);
+
+defineProps({
+  month: {
+    type: Number,
+    default: new Date().getMonth(),
+  },
+  year: {
+    type: Number,
+    default: new Date().getFullYear(),
+  },
+});
 
 const selectMonth = () => {
   emit("toggle", "month-select");

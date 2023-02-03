@@ -1,8 +1,8 @@
 <template>
-  <SingleView :month="month" :year="year" />
+  <CalendarNavigation />
 </template>
 <script setup>
-import SingleView from "./components/SingleView.vue";
+import CalendarNavigation from "./CalendarNavigation.vue";
 defineProps({
   month: {
     type: Number,

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <CalendarNavigation @toggle="toggle" />
+    <CalendarNavigation
+      :month="selectedMonth"
+      :year="selectedYear"
+      @toggle="toggle"
+    />
     <MonthWrapper
       v-model:month="selectedMonth"
       v-model:year="selectedYear"
@@ -18,10 +22,10 @@ import MonthWrapper from "./MonthWrapper.vue";
 
 const monthPicker = ref(false);
 const yearPicker = ref(false);
-const selectedMonth = ref(null);
-const selectedYear = ref(null);
+const selectedMonth = ref(props.month);
+const selectedYear = ref(props.year);
 
-defineProps({
+const props = defineProps({
   month: {
     type: Number,
     default: new Date().getMonth(),

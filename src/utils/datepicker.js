@@ -18,3 +18,13 @@ export const yearRange = (from, to) => {
   const totalYears = currentYear > to ? currentYear + 1 - from : to + 1 - from;
   return Array.from({ length: totalYears }, (_, year) => from + year);
 };
+
+export const weekdayName = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];

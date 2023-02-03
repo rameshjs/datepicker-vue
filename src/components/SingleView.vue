@@ -12,7 +12,6 @@
       :showYearPicker="yearPicker"
       @close-picker="closePicker"
     />
-    {{ selectedYear }}
   </div>
 </template>
 <script setup>

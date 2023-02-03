@@ -9,6 +9,15 @@
         {{ weekDay.slice(0, 3) }}
       </div>
     </div>
+    <div v-for="week in weeks" :key="week" class="grid grid-cols-7">
+      <div
+        v-for="day in week"
+        :key="day"
+        class="flex align-center justify-center"
+      >
+        <Day v-if="day" :day="day" />
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -17,5 +26,20 @@ export default {
 };
 </script>
 <script setup>
-import { weekdayName } from "../utils/datepicker";
+import { computed } from "vue";
+import { weekdayName, getWeeksForMonth } from "../utils/datepicker";
+import Day from "./Day.vue";
+
+const props = defineProps({
+  month: {
+    type: Number,
+    default: new Date().getMonth(),
+  },
+  year: {
+    type: Number,
+    default: new Date().getFullYear(),
+  },
+});
+
+const weeks = computed(() => getWeeksForMonth(props.month, props.year));
 </script>

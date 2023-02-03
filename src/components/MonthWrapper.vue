@@ -1,6 +1,10 @@
 <template>
-  <div class="max-h-[310px] overflow-visible overflow-x-hidden">
-    <Month v-if="!showMonthPicker && !showYearPicker" />
+  <div class="max-h-[400px] overflow-visible overflow-x-hidden">
+    <Month
+      v-if="!showMonthPicker && !showYearPicker"
+      :month="month"
+      :year="year"
+    />
     <MonthPicker v-if="showMonthPicker" v-model="month" />
     <YearPicker v-if="showYearPicker" v-model="year" />
   </div>

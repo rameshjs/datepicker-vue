@@ -34,10 +34,10 @@ defineProps({
 
 const toggle = (event) => {
   if (event === "month-select") {
-    monthPicker.value = true;
+    monthPicker.value = !monthPicker.value;
     yearPicker.value = false;
   } else {
-    yearPicker.value = true;
+    yearPicker.value = !yearPicker.value;
     monthPicker.value = false;
   }
 };

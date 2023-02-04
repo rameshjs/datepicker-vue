@@ -19,6 +19,7 @@
 import { ref, computed } from "vue";
 import CalendarNavigation from "./CalendarNavigation.vue";
 import MonthWrapper from "./MonthWrapper.vue";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits(["update:modelValue"]);
 
@@ -28,18 +29,7 @@ const selectedMonth = ref(props.month);
 const selectedYear = ref(props.year);
 
 const props = defineProps({
-  month: {
-    type: Number,
-    default: new Date().getMonth(),
-  },
-  year: {
-    type: Number,
-    default: new Date().getFullYear(),
-  },
-  modelValue: {
-    type: Object,
-    default: () => ({ start: null, end: null }),
-  },
+  ...AllProps,
 });
 
 const selectedDate = computed({

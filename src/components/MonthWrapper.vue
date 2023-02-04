@@ -15,6 +15,7 @@ import MonthPicker from "./MonthPicker.vue";
 import YearPicker from "./YearPicker.vue";
 import Month from "./Month.vue";
 import { computed } from "vue";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits([
   "update:month",
@@ -24,14 +25,7 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
-  month: {
-    type: Number,
-    default: new Date().getMonth(),
-  },
-  year: {
-    type: Number,
-    default: new Date().getFullYear(),
-  },
+  ...AllProps,
   showMonthPicker: {
     type: Boolean,
     default: false,
@@ -39,10 +33,6 @@ const props = defineProps({
   showYearPicker: {
     type: Boolean,
     default: false,
-  },
-  modelValue: {
-    type: Object,
-    default: () => ({ start: null, end: null }),
   },
 });
 

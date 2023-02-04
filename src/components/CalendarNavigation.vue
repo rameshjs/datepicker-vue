@@ -78,6 +78,7 @@
 </template>
 <script setup>
 import { months, nextMonth, prevMonth } from "../utils/datepicker";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits([
   "toggle",
@@ -88,14 +89,7 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
-  month: {
-    type: Number,
-    default: new Date().getMonth(),
-  },
-  year: {
-    type: Number,
-    default: new Date().getFullYear(),
-  },
+  ...AllProps,
 });
 
 // Emits nextMonth event.

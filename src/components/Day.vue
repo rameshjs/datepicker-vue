@@ -10,6 +10,7 @@ export default {
 </script>
 <script setup>
 import { computed } from "vue";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits(["update:modelValue"]);
 
@@ -26,16 +27,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  modelValue: {
-    type: Date,
-    default: null,
-  },
+  ...AllProps,
 });
 
 const formattedDate = computed(() => props.day.getDate());
 
 const selectDate = () => {
-  emit("update:modelValue", props.day);
+  emit("update:modelValue", { start: props.day, end: props.day });
 };
 
 const classes = computed(() => ({

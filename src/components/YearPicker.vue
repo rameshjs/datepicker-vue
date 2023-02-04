@@ -13,18 +13,12 @@
 <script setup>
 import { yearRange } from "../utils/datepicker";
 import { computed } from "vue";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
-  year: {
-    type: Number,
-    default: new Date().getFullYear(),
-  },
-  modelValue: {
-    type: Number,
-    default: 0,
-  },
+  ...AllProps,
 });
 
 const selectYear = (year) => {

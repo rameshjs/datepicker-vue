@@ -41,22 +41,12 @@ import {
   isSelected,
 } from "../utils/datepicker";
 import Day from "./Day.vue";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
-  month: {
-    type: Number,
-    default: new Date().getMonth(),
-  },
-  year: {
-    type: Number,
-    default: new Date().getFullYear(),
-  },
-  modelValue: {
-    type: Object,
-    default: () => ({ start: null, end: null }),
-  },
+  ...AllProps,
 });
 
 const selectedDate = computed({
@@ -64,7 +54,7 @@ const selectedDate = computed({
     return props.modelValue;
   },
   set(date) {
-    emit("update:modelValue", { start: date, end: date });
+    emit("update:modelValue", date);
   },
 });
 

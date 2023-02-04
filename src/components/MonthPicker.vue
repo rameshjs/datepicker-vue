@@ -12,14 +12,12 @@
 </template>
 <script setup>
 import { months } from "../utils/datepicker";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits(["update:modelValue"]);
 
 defineProps({
-  modelValue: {
-    type: Number,
-    default: 0,
-  },
+  ...AllProps,
 });
 
 const selectMonth = (monthIndex) => {

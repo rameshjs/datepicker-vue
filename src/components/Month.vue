@@ -20,6 +20,7 @@
           :day="day"
           v-model="selectedDate"
           :selected="isSelected(dateRange, day)"
+          :today="isToday(day)"
         />
       </div>
     </div>
@@ -32,6 +33,7 @@ export default {
 </script>
 <script setup>
 import { computed } from "vue";
+import { isToday } from "date-fns";
 import {
   weekdayName,
   getWeeksForMonth,

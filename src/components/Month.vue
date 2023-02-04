@@ -15,7 +15,12 @@
         :key="day"
         class="flex align-center justify-center"
       >
-        <Day v-if="day" :day="day" v-model="selectedDate" />
+        <Day
+          v-if="day"
+          :day="day"
+          v-model="selectedDate"
+          :selected="isSelected(dateRange, day)"
+        />
       </div>
     </div>
   </div>
@@ -27,7 +32,12 @@ export default {
 </script>
 <script setup>
 import { computed } from "vue";
-import { weekdayName, getWeeksForMonth } from "../utils/datepicker";
+import {
+  weekdayName,
+  getWeeksForMonth,
+  getDatesInRange,
+  isSelected,
+} from "../utils/datepicker";
 import Day from "./Day.vue";
 
 const emit = defineEmits(["update:modelValue"]);
@@ -57,4 +67,5 @@ const selectedDate = computed({
 });
 
 const weeks = computed(() => getWeeksForMonth(props.month, props.year));
+const dateRange = computed(() => getDatesInRange(props.modelValue));
 </script>

@@ -1,3 +1,4 @@
+/** List of months to display in month picker */
 export const months = [
   "January",
   "February",
@@ -13,12 +14,7 @@ export const months = [
   "December",
 ];
 
-export const yearRange = (from, to) => {
-  const currentYear = new Date().getFullYear();
-  const totalYears = currentYear > to ? currentYear + 1 - from : to + 1 - from;
-  return Array.from({ length: totalYears }, (_, year) => from + year);
-};
-
+/** List of week name to display in calendar */
 export const weekdayName = [
   "sunday",
   "monday",
@@ -29,6 +25,19 @@ export const weekdayName = [
   "saturday",
 ];
 
+/** Generate list of years to dsplay in year select */
+export const yearRange = (from, to) => {
+  const currentYear = new Date().getFullYear();
+  const totalYears = currentYear > to ? currentYear + 1 - from : to + 1 - from;
+  return Array.from({ length: totalYears }, (_, year) => from + year);
+};
+
+/**
+ * To generate days , weeks for a specific month and year.
+ * If a day of a month starts in second day first day is null.
+ * Outer array represents month and inner arrays represents weeks and each weeks array contains days
+ * Ex: [ [ null, null, "2022-10-31T18:30:00.000Z", ...], ["2022-11-05T18:30:00.000Z", ...], .... ]
+ */
 const WEEK_LENGTH = 7;
 export const getWeeksForMonth = (month, year) => {
   const firstOfMonth = new Date(year, month, 1);
@@ -64,6 +73,10 @@ export const getWeeksForMonth = (month, year) => {
   return weeks;
 };
 
+/**
+ * Gets dates in between provided start and end date.
+ * EX: [ "2022-10-31T18:30:00.000Z", "2022-10-31T18:30:00.000Z", ..... ]
+ */
 export const getDatesInRange = (selectedDateRange) => {
   const dates = [];
 
@@ -81,12 +94,14 @@ export const getDatesInRange = (selectedDateRange) => {
   return dates;
 };
 
+/** Checks if the date is in between selected date range. */
 export const isSelected = (dateRange, date) => {
   return dateRange.find((day) => day.getTime() === date.getTime())
     ? true
     : false;
 };
 
+/** Calendar navigation to switch between months and year */
 export const nextMonth = (month, year) => {
   if (month > 10) {
     return { month: 0, year: year + 1 };

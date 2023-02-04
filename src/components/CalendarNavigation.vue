@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex justify-between">
-    <button class="p-2 hover:bg-slate-100 rounded">
+    <button class="p-2 hover:bg-slate-100 rounded" @click="prevMonthNav">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -58,7 +58,7 @@
         </svg>
       </button>
     </div>
-    <button class="p-2 hover:bg-slate-100 rounded">
+    <button class="p-2 hover:bg-slate-100 rounded" @click="nextMonthNav">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -77,11 +77,17 @@
   </div>
 </template>
 <script setup>
-import { months } from "../utils/datepicker";
+import { months, nextMonth, prevMonth } from "../utils/datepicker";
 
-const emit = defineEmits(["toggle", "month-select", "year-select"]);
+const emit = defineEmits([
+  "toggle",
+  "month-select",
+  "year-select",
+  "update:month",
+  "update:year",
+]);
 
-defineProps({
+const props = defineProps({
   month: {
     type: Number,
     default: new Date().getMonth(),
@@ -91,6 +97,20 @@ defineProps({
     default: new Date().getFullYear(),
   },
 });
+
+// Emits nextMonth event.
+const nextMonthNav = () => {
+  const { month, year } = nextMonth(props.month, props.year);
+  emit("update:month", month);
+  emit("update:year", year);
+};
+
+// Emits prevMonth event.
+const prevMonthNav = () => {
+  const { month, year } = prevMonth(props.month, props.year);
+  emit("update:month", month);
+  emit("update:year", year);
+};
 
 const selectMonth = () => {
   emit("toggle", "month-select");

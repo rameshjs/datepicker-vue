@@ -1,8 +1,8 @@
 <template>
   <div>
     <CalendarNavigation
-      :month="selectedMonth"
-      :year="selectedYear"
+      v-model:month="selectedMonth"
+      v-model:year="selectedYear"
       @toggle="toggle"
     />
     <MonthWrapper

@@ -7,7 +7,7 @@
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-6 h-6"
+        class="w-4 h-4"
       >
         <path
           stroke-linecap="round"
@@ -18,7 +18,7 @@
     </button>
     <div class="flex">
       <button
-        class="p-2 hover:bg-slate-100 rounded mr-2 flex items-center font-bold"
+        class="p-2 hover:bg-slate-100 rounded mr-2 flex items-center font-bold text-slate-600"
         @click="selectMonth"
       >
         {{ months[month] }}
@@ -38,7 +38,7 @@
         </svg>
       </button>
       <button
-        class="p-2 hover:bg-slate-100 rounded flex items-center font-bold"
+        class="p-2 hover:bg-slate-100 rounded flex items-center font-bold text-slate-600"
         @click="selectYear"
       >
         {{ year }}
@@ -65,7 +65,7 @@
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-6 h-6"
+        class="w-4 h-4"
       >
         <path
           stroke-linecap="round"
@@ -78,6 +78,7 @@
 </template>
 <script setup>
 import { months, nextMonth, prevMonth } from "../utils/datepicker";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits([
   "toggle",
@@ -88,14 +89,7 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
-  month: {
-    type: Number,
-    default: new Date().getMonth(),
-  },
-  year: {
-    type: Number,
-    default: new Date().getFullYear(),
-  },
+  ...AllProps,
 });
 
 // Emits nextMonth event.

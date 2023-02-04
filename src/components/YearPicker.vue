@@ -1,9 +1,14 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-4">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 lg:gap-1 bg-slate-200"
+  >
     <button
       v-for="year in years"
       :key="year"
-      class="w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize"
+      :class="{
+        'w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize font-bold text-slate-600': true,
+        'bg-slate-200': year === modelValue,
+      }"
       @click="selectYear(year)"
     >
       {{ year }}
@@ -13,18 +18,12 @@
 <script setup>
 import { yearRange } from "../utils/datepicker";
 import { computed } from "vue";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
-  year: {
-    type: Number,
-    default: new Date().getFullYear(),
-  },
-  modelValue: {
-    type: Number,
-    default: 0,
-  },
+  ...AllProps,
 });
 
 const selectYear = (year) => {

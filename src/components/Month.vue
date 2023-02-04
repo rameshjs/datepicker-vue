@@ -4,7 +4,7 @@
       <div
         v-for="weekDay in weekdayName"
         :key="weekDay"
-        class="flex align-center justify-center font-bold capitalize p-3"
+        class="flex align-center justify-center font-bold capitalize p-3 text-slate-600"
       >
         {{ weekDay.slice(0, 3) }}
       </div>
@@ -20,6 +20,7 @@
           :day="day"
           v-model="selectedDate"
           :selected="isSelected(dateRange, day)"
+          :today="isToday(day)"
         />
       </div>
     </div>
@@ -32,6 +33,7 @@ export default {
 </script>
 <script setup>
 import { computed } from "vue";
+import { isToday } from "date-fns";
 import {
   weekdayName,
   getWeeksForMonth,
@@ -39,22 +41,12 @@ import {
   isSelected,
 } from "../utils/datepicker";
 import Day from "./Day.vue";
+import { AllProps } from "../utils/props";
 
 const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
-  month: {
-    type: Number,
-    default: new Date().getMonth(),
-  },
-  year: {
-    type: Number,
-    default: new Date().getFullYear(),
-  },
-  modelValue: {
-    type: Object,
-    default: () => ({ start: null, end: null }),
-  },
+  ...AllProps,
 });
 
 const selectedDate = computed({
@@ -62,7 +54,7 @@ const selectedDate = computed({
     return props.modelValue;
   },
   set(date) {
-    emit("update:modelValue", { start: date, end: date });
+    emit("update:modelValue", date);
   },
 });
 

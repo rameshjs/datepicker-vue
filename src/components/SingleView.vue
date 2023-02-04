@@ -1,8 +1,8 @@
 <template>
   <div>
     <CalendarNavigation
-      :month="selectedMonth"
-      :year="selectedYear"
+      v-model:month="selectedMonth"
+      v-model:year="selectedYear"
       @toggle="toggle"
     />
     <MonthWrapper
@@ -11,13 +11,16 @@
       :showMonthPicker="monthPicker"
       :showYearPicker="yearPicker"
       @close-picker="closePicker"
+      v-model="selectedDate"
     />
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import CalendarNavigation from "./CalendarNavigation.vue";
 import MonthWrapper from "./MonthWrapper.vue";
+
+const emit = defineEmits(["update:modelValue"]);
 
 const monthPicker = ref(false);
 const yearPicker = ref(false);
@@ -32,6 +35,19 @@ const props = defineProps({
   year: {
     type: Number,
     default: new Date().getFullYear(),
+  },
+  modelValue: {
+    type: Object,
+    default: () => ({ start: null, end: null }),
+  },
+});
+
+const selectedDate = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(date) {
+    emit("update:modelValue", date);
   },
 });
 

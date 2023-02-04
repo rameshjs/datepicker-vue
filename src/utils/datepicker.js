@@ -63,3 +63,42 @@ export const getWeeksForMonth = (month, year) => {
 
   return weeks;
 };
+
+export const getDatesInRange = (selectedDateRange) => {
+  const dates = [];
+
+  const start = selectedDateRange?.start;
+  const end = selectedDateRange?.end;
+
+  if (start && end) {
+    const date = new Date(start.getTime());
+
+    while (date <= end) {
+      dates.push(new Date(date));
+      date.setDate(date.getDate() + 1);
+    }
+  }
+  return dates;
+};
+
+export const isSelected = (dateRange, date) => {
+  return dateRange.find((day) => day.getTime() === date.getTime())
+    ? true
+    : false;
+};
+
+export const nextMonth = (month, year) => {
+  if (month > 10) {
+    return { month: 0, year: year + 1 };
+  } else {
+    return { month: month + 1, year: year };
+  }
+};
+
+export const prevMonth = (month, year) => {
+  if (month < 1) {
+    return { month: 11, year: year - 1 };
+  } else {
+    return { month: month - 1, year: year };
+  }
+};

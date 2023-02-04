@@ -5,7 +5,10 @@
     <button
       v-for="year in years"
       :key="year"
-      class="w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize font-bold text-slate-600"
+      :class="{
+        'w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize font-bold text-slate-600': true,
+        'bg-slate-200': year === modelValue,
+      }"
       @click="selectYear(year)"
     >
       {{ year }}

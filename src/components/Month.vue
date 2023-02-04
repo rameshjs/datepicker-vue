@@ -4,7 +4,7 @@
       <div
         v-for="weekDay in weekdayName"
         :key="weekDay"
-        class="flex align-center justify-center font-bold capitalize p-3"
+        class="flex align-center justify-center font-bold capitalize p-3 text-slate-600"
       >
         {{ weekDay.slice(0, 3) }}
       </div>

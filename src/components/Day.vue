@@ -37,8 +37,8 @@ const selectDate = () => {
 };
 
 const classes = computed(() => ({
-  "p-4 w-full h-full hover:bg-slate-100 rounded": true,
-  "bg-blue-500 hover:bg-blue-600": props.selected,
+  "p-3 w-full h-full hover:bg-slate-100 rounded font-medium": true,
+  "bg-blue-700 hover:bg-blue-800 text-white": props.selected,
   "bg-slate-200": props.today && !props.selected,
 }));
 </script>

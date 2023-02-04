@@ -1,9 +1,11 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-4">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 lg:gap-1 bg-slate-200"
+  >
     <button
       v-for="(month, index) in months"
       :key="index"
-      class="w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize"
+      class="w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize font-bold text-slate-600"
       @click="selectMonth(index)"
     >
       {{ month }}

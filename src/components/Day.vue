@@ -1,5 +1,5 @@
 <template>
-  <button class="p-4 w-full h-full">
+  <button :class="classes" @click="selectDate">
     {{ formattedDate }}
   </button>
 </template>
@@ -11,12 +11,31 @@ export default {
 <script setup>
 import { computed } from "vue";
 
+const emit = defineEmits(["update:modelValue"]);
+
 const props = defineProps({
   day: {
+    type: Date,
+    default: null,
+  },
+  selected: {
+    type: Boolean,
+    default: false,
+  },
+  modelValue: {
     type: Date,
     default: null,
   },
 });
 
 const formattedDate = computed(() => props.day.getDate());
+
+const selectDate = () => {
+  emit("update:modelValue", props.day);
+};
+
+const classes = computed(() => ({
+  "p-4 w-full h-full hover:bg-slate-100 rounded": true,
+  "bg-blue-500": props.selected,
+}));
 </script>

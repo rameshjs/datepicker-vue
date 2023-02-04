@@ -15,7 +15,7 @@
         :key="day"
         class="flex align-center justify-center"
       >
-        <Day v-if="day" :day="day" />
+        <Day v-if="day" :day="day" v-model="selectedDate" />
       </div>
     </div>
   </div>
@@ -30,6 +30,8 @@ import { computed } from "vue";
 import { weekdayName, getWeeksForMonth } from "../utils/datepicker";
 import Day from "./Day.vue";
 
+const emit = defineEmits(["update:modelValue"]);
+
 const props = defineProps({
   month: {
     type: Number,
@@ -38,6 +40,19 @@ const props = defineProps({
   year: {
     type: Number,
     default: new Date().getFullYear(),
+  },
+  modelValue: {
+    type: Object,
+    default: () => ({ start: null, end: null }),
+  },
+});
+
+const selectedDate = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(date) {
+    emit("update:modelValue", { start: date, end: date });
   },
 });
 

@@ -41,6 +41,6 @@ const selectDate = () => {
 const classes = computed(() => ({
   "p-4 w-full h-full hover:bg-slate-100 rounded": true,
   "bg-blue-500 hover:bg-blue-600": props.selected,
-  "bg-slate-200": props.today,
+  "bg-slate-200": props.today && !props.selected,
 }));
 </script>

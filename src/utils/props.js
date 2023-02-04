@@ -11,4 +11,8 @@ export const AllProps = {
     type: [Object, Number],
     default: null,
   },
+  inline: {
+    type: Boolean,
+    default: true,
+  }
 };

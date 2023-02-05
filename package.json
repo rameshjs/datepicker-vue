@@ -14,7 +14,8 @@
     "date-fns": "^2.29.3",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue3-popper": "^1.5.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",

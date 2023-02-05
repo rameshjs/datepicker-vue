@@ -1,3 +1,5 @@
+import { format, isValid, isDate, parse } from "date-fns";
+
 /** List of months to display in month picker */
 export const months = [
   "January",
@@ -116,4 +118,19 @@ export const prevMonth = (month, year) => {
   } else {
     return { month: month - 1, year: year };
   }
+};
+
+export const formatDateInput = (date) => {
+  if (date) {
+    return format(date, "dd-MM-yyyy");
+  }
+  return null;
+};
+
+export const parseTextToDate = (value) => {
+  const parsedDate = parse(value, "dd-MM-yyyy", new Date());
+  if (isValid(parsedDate) && isDate(parsedDate)) {
+    return parsedDate;
+  }
+  return null;
 };

@@ -6,7 +6,7 @@
     v-model="selectedDate"
   />
   <Popper v-else>
-    <Input label="Start Date" placeholder="Start date" v-model="startDate" />
+    <Input :label="label" :placeholder="placeholder" v-model="startDate" />
     <template #content>
       <div class="w-[400px]">
         <SingleView :month="month" :year="year" v-model="selectedDate" />
@@ -24,7 +24,17 @@ import { formatDateInput, parseTextToDate } from "./utils/datepicker";
 
 const emit = defineEmits(["update:modelValue"]);
 
-const props = defineProps({ ...AllProps });
+const props = defineProps({
+  ...AllProps,
+  label: {
+    type: String,
+    default: "",
+  },
+  placeholder: {
+    type: String,
+    default: "",
+  },
+});
 
 const startDate = ref(formatDateInput(props.modelValue.start));
 

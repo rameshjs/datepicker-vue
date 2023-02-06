@@ -15,7 +15,11 @@
       "require": "./dist/style.css"
     }
   },
-  "version": "0.0.8",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ramesh-exe/datepicker-vue"
+  },
+  "version": "0.1.0",
   "private": false,
   "scripts": {
     "dev": "vite",

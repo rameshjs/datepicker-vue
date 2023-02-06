@@ -1,41 +1,52 @@
-# datepicker-vue3
+## @ramesh-exe/datepicker-vue
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+### Complete and highly customizable datepicker for vue3
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
+[StackBlitz Playground](https://stackblitz.com/edit/ramesh-exedatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Features
 
-## Project Setup
+- Single date picker
+- Single date picker with text field
+- Month picker
+- Year picker
 
-```sh
-yarn
+## Install
+
+```shell
+yarn add @ramesh-exe/datepicker-vue
+
+# or
+
+npm i @ramesh-exe/datepicker-vue
 ```
 
-### Compile and Hot-Reload for Development
+Import and register component
 
-```sh
-yarn dev
+**Global**
+
+```js
+import { createApp } from 'vue';
+import App from './App.vue';
+
+import {DatePicker} from '@ramesh-exe/datepicker-vue';
+import '@ramesh-exe/datepicker-vue/dist/style.css';
+
+const app = createApp(App);
+app.component('DatePicker', DatePicker);
 ```
 
-### Compile and Minify for Production
+**Local**
 
-```sh
-yarn build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-yarn test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-yarn lint
+```vue
+<script>
+    import {DatePicker} from '@ramesh-exe/datepicker-vue';
+    import '@ramesh-exe/datepicker-vue/dist/style.css';
+    
+    export default {
+        components: { DatePicker }
+    }
+</script>
 ```

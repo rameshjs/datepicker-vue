@@ -1,5 +1,7 @@
 <template>
-  <div class="grid grid-cols-4 gap-1 bg-slate-200">
+  <div
+    class="grid grid-cols-4 gap-1 bg-slate-200 max-h-[250px] overflow-visible overflow-x-hidden"
+  >
     <button
       v-for="year in years"
       :key="year"

@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <DatePicker v-model="selectedDate" :inline="false" />
+    <DatePicker v-model="selectedDate" />
     {{ selectedDate }}
   </div>
 </template>

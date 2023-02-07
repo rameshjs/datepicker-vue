@@ -8,12 +8,13 @@
 
 ## Features
 
-- Single date picker
-- Single date picker with text field
-- Single date range picker
-- Single date range picker with text field
-- Month picker
-- Year picker
+- Single view date picker
+- Single view date picker with text field for displaying the selected date
+- Single view date range picker for selecting a range of dates
+- Single view date range picker with text fields for displaying the selected start and end dates
+- Slots for customizing the trigger and input fields, allowing users to add their own elements for triggering the datepicker and displaying the selected date(s)
+- Month select feature, which allows users to select a specific month within a year
+- Year select feature, which allows users to select a specific year.
 
 ## Install
 

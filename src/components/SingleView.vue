@@ -16,7 +16,7 @@
   </div>
 </template>
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import CalendarNavigation from "./CalendarNavigation.vue";
 import MonthWrapper from "./MonthWrapper.vue";
 import { AllProps } from "../utils/props";
@@ -40,6 +40,16 @@ const selectedDate = computed({
     emit("update:modelValue", date);
   },
 });
+
+watch(
+  () => props.modelValue,
+  (newModelValue) => {
+    if (props.modelValue.start) {
+      selectedMonth.value = newModelValue.start.getMonth();
+      selectedYear.value = newModelValue.start.getFullYear();
+    }
+  }
+);
 
 const toggle = (event) => {
   if (event === "month-select") {

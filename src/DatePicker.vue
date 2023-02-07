@@ -68,7 +68,7 @@ const updateModel = (start, end) => {
   });
 };
 
-const updateInput = (start, end) => {
+const updateInput = (start) => {
   startDate.value = formatDateInput(start);
 };
 

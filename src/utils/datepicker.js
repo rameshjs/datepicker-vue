@@ -134,3 +134,37 @@ export const parseTextToDate = (value) => {
   }
   return null;
 };
+
+/**
+ * Sets start and end date for range and multi view calendar.
+ * EX: { "start": "2022-10-31T18:30:00.000Z", "end": "2022-10-31T18:30:00.000Z" }
+ */
+export const rangeSelect = (date, selectedDateRange) => {
+  let range = {
+    start: selectedDateRange.start,
+    end: selectedDateRange.end,
+  };
+
+  if ((range.start && range.end) || range.start > date) {
+    range = { start: null, end: null };
+  }
+
+  if (!range.start || range.end > date) {
+    range.start = date;
+  } else {
+    range.end = date;
+  }
+  return range;
+};
+
+// Checks if both the dates passed or same.
+export const isSameDay = (day1, day2) => {
+  if (day1 && day2) {
+    return (
+      day1.getDate() === day2.getDate() &&
+      day1.getMonth() === day2.getMonth() &&
+      day1.getFullYear() === day2.getFullYear()
+    );
+  }
+  return false;
+};

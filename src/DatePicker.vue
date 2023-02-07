@@ -4,6 +4,7 @@
     :month="month"
     :year="year"
     v-model="selectedDate"
+    :allowRange="allowRange"
   />
   <Popper v-else ref="popover" :show="isOpen">
     <slot name="trigger-datepicker" :toggle="toggle">
@@ -20,11 +21,22 @@
           v-model="startDate"
           @focus="showPopover"
         />
+        <Input
+          :label="label"
+          :placeholder="placeholder"
+          v-model="endDate"
+          @focus="showPopover"
+        />
       </slot>
     </slot>
     <template #content>
       <div class="w-[400px]">
-        <SingleView :month="month" :year="year" v-model="selectedDate" />
+        <SingleView
+          :month="month"
+          :year="year"
+          v-model="selectedDate"
+          :allowRange="allowRange"
+        />
       </div>
     </template>
   </Popper>
@@ -56,9 +68,10 @@ const popover = ref(null);
 const isOpen = ref(false);
 
 const startDate = ref(formatDateInput(props.modelValue.start));
+const endDate = ref(formatDateInput(props.modelValue.end));
 
-watch([startDate], ([newStartDate]) => {
-  updateModel(parseTextToDate(newStartDate), parseTextToDate(newStartDate));
+watch([startDate, endDate], ([newStartDate, newEndDate]) => {
+  updateModel(parseTextToDate(newStartDate), parseTextToDate(newEndDate));
 });
 
 const updateModel = (start, end) => {
@@ -68,8 +81,9 @@ const updateModel = (start, end) => {
   });
 };
 
-const updateInput = (start) => {
+const updateInput = (start, end) => {
   startDate.value = formatDateInput(start);
+  endDate.value = formatDateInput(end);
 };
 
 const selectedDate = computed({
@@ -77,7 +91,7 @@ const selectedDate = computed({
     return props.modelValue;
   },
   set(date) {
-    emit("update:modelValue", date);
+    updateModel(date.start, date.end);
     updateInput(date.start, date.end);
   },
 });

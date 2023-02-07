@@ -30,6 +30,7 @@ export default defineConfig({
           vue: "Vue",
           "date-fns": "date-fn",
           "vue3-popper": "vue3-popper",
+          "@vueuse/core": "@vueuse/core",
           tailwindcss: "tailwindcss",
         },
       },

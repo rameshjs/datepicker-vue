@@ -3,14 +3,15 @@
   "files": [
     "dist"
   ],
-  "type": "module",
-  "main": "./dist/datepicker-vue.umd.cjs",
-  "module": "./dist/datepicker-vue.js",
+  "main": "./dist/datepicker-vue.umd.js",
+  "module": "./dist/datepicker-vue.mjs",
   "style": "dist/style.css",
+  "author": "@ramesh-exe",
+  "license": "MIT",
   "exports": {
     ".": {
-      "import": "./dist/datepicker-vue.js",
-      "require": "./dist/datepicker-vue.umd.cjs"
+      "import": "./dist/datepicker-vue.mjs",
+      "require": "./dist/datepicker-vue.umd.js"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",
@@ -21,7 +22,7 @@
     "type": "git",
     "url": "https://github.com/ramesh-exe/datepicker-vue"
   },
-  "version": "0.2.0",
+  "version": "0.9.0",
   "private": false,
   "scripts": {
     "dev": "vite",

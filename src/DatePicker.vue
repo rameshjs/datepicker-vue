@@ -22,7 +22,6 @@
             :placeholder="startDatePlaceholder"
             v-model="startDate"
             @focus="showPopover"
-            :class="classes"
           />
           <Input
             v-if="allowRange"
@@ -124,8 +123,4 @@ const hidePopover = () => {
 onClickOutside(popover, () => {
   hidePopover();
 });
-
-const classes = computed(() => ({
-  "mb-2 lg:mr-2": props.allowRange,
-}));
 </script>

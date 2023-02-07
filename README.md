@@ -10,6 +10,8 @@
 
 - Single date picker
 - Single date picker with text field
+- Single date range picker
+- Single date range picker with text field
 - Month picker
 - Year picker
 

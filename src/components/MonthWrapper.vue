@@ -4,7 +4,9 @@
       v-if="!showMonthPicker && !showYearPicker"
       :month="month"
       :year="year"
-      v-model="selectedDate"
+      @selectDate="selectedDate"
+      :allow-range="allowRange"
+      :selectedDateRange="selectedDateRange"
     />
     <MonthPicker v-if="showMonthPicker" v-model="month" />
     <YearPicker v-if="showYearPicker" v-model="year" />
@@ -21,7 +23,7 @@ const emit = defineEmits([
   "update:month",
   "update:year",
   "close-picker",
-  "update:modelValue",
+  "selectDate",
 ]);
 
 const props = defineProps({
@@ -36,14 +38,9 @@ const props = defineProps({
   },
 });
 
-const selectedDate = computed({
-  get() {
-    return props.modelValue;
-  },
-  set(date) {
-    emit("update:modelValue", date);
-  },
-});
+const selectedDate = (date) => {
+  emit("selectDate", date);
+};
 
 const month = computed({
   get() {

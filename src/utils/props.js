@@ -15,4 +15,12 @@ export const AllProps = {
     type: Boolean,
     default: true,
   },
+  allowRange: {
+    type: Boolean,
+    default: false,
+  },
+  selectedDateRange: {
+    tyoe: Object,
+    default: null,
+  },
 };

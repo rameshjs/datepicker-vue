@@ -11,15 +11,18 @@
       :showMonthPicker="monthPicker"
       :showYearPicker="yearPicker"
       @close-picker="closePicker"
-      v-model="selectedDate"
+      @selectDate="selectedDate"
+      :selectedDateRange="modelValue"
+      :allow-range="allowRange"
     />
   </div>
 </template>
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref, watch } from "vue";
 import CalendarNavigation from "./CalendarNavigation.vue";
 import MonthWrapper from "./MonthWrapper.vue";
 import { AllProps } from "../utils/props";
+import { rangeSelect } from "../utils/datepicker";
 
 const emit = defineEmits(["update:modelValue"]);
 
@@ -32,14 +35,13 @@ const props = defineProps({
   ...AllProps,
 });
 
-const selectedDate = computed({
-  get() {
-    return props.modelValue;
-  },
-  set(date) {
-    emit("update:modelValue", date);
-  },
-});
+const selectedDate = (date) => {
+  if (props.allowRange) {
+    emit("update:modelValue", rangeSelect(date, props.modelValue));
+  } else {
+    emit("update:modelValue", { start: date, end: date });
+  }
+};
 
 watch(
   () => props.modelValue,

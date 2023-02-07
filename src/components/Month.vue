@@ -18,9 +18,12 @@
         <Day
           v-if="day"
           :day="day"
-          v-model="selectedDate"
+          @selectDate="selectedDate"
+          :is-start="isSameDay(selectedDateRange?.start, day)"
+          :is-end="isSameDay(selectedDateRange?.end, day)"
           :selected="isSelected(dateRange, day)"
           :today="isToday(day)"
+          :allow-range="allowRange"
         />
       </div>
     </div>
@@ -39,25 +42,21 @@ import {
   getWeeksForMonth,
   getDatesInRange,
   isSelected,
+  isSameDay,
 } from "../utils/datepicker";
 import Day from "./Day.vue";
 import { AllProps } from "../utils/props";
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["selectDate"]);
 
 const props = defineProps({
   ...AllProps,
 });
 
-const selectedDate = computed({
-  get() {
-    return props.modelValue;
-  },
-  set(date) {
-    emit("update:modelValue", date);
-  },
-});
+const selectedDate = (date) => {
+  emit("selectDate", date);
+};
 
 const weeks = computed(() => getWeeksForMonth(props.month, props.year));
-const dateRange = computed(() => getDatesInRange(props.modelValue));
+const dateRange = computed(() => getDatesInRange(props.selectedDateRange));
 </script>

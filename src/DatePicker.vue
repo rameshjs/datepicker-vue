@@ -4,27 +4,44 @@
     :month="month"
     :year="year"
     v-model="selectedDate"
+    :allowRange="allowRange"
   />
   <Popper v-else ref="popover" :show="isOpen">
     <slot name="trigger-datepicker" :toggle="toggle">
       <slot
         name="datepicker-input"
         :start-date="startDate"
+        :end-date="endDate"
         :toggle="toggle"
         :showPopover="showPopover"
         :hidePopover="hidePopover"
       >
-        <Input
-          :label="label"
-          :placeholder="placeholder"
-          v-model="startDate"
-          @focus="showPopover"
-        />
+        <div class="w-full flex flex-col lg:flex-row">
+          <Input
+            :label="startDateLabel"
+            :placeholder="startDatePlaceholder"
+            v-model="startDate"
+            @focus="showPopover"
+            :class="classes"
+          />
+          <Input
+            v-if="allowRange"
+            :label="endDateLabel"
+            :placeholder="endDatePlaceholder"
+            v-model="endDate"
+            @focus="showPopover"
+          />
+        </div>
       </slot>
     </slot>
     <template #content>
       <div class="w-[400px]">
-        <SingleView :month="month" :year="year" v-model="selectedDate" />
+        <SingleView
+          :month="month"
+          :year="year"
+          v-model="selectedDate"
+          :allowRange="allowRange"
+        />
       </div>
     </template>
   </Popper>
@@ -42,11 +59,19 @@ const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
   ...AllProps,
-  label: {
+  startDateLabel: {
     type: String,
     default: "",
   },
-  placeholder: {
+  endDateLabel: {
+    type: String,
+    default: "",
+  },
+  startDatePlaceholder: {
+    type: String,
+    default: "",
+  },
+  endDatePlaceholder: {
     type: String,
     default: "",
   },
@@ -56,9 +81,10 @@ const popover = ref(null);
 const isOpen = ref(false);
 
 const startDate = ref(formatDateInput(props.modelValue.start));
+const endDate = ref(formatDateInput(props.modelValue.end));
 
-watch([startDate], ([newStartDate]) => {
-  updateModel(parseTextToDate(newStartDate), parseTextToDate(newStartDate));
+watch([startDate, endDate], ([newStartDate, newEndDate]) => {
+  updateModel(parseTextToDate(newStartDate), parseTextToDate(newEndDate));
 });
 
 const updateModel = (start, end) => {
@@ -68,8 +94,9 @@ const updateModel = (start, end) => {
   });
 };
 
-const updateInput = (start) => {
+const updateInput = (start, end) => {
   startDate.value = formatDateInput(start);
+  endDate.value = formatDateInput(end);
 };
 
 const selectedDate = computed({
@@ -77,7 +104,7 @@ const selectedDate = computed({
     return props.modelValue;
   },
   set(date) {
-    emit("update:modelValue", date);
+    updateModel(date.start, date.end);
     updateInput(date.start, date.end);
   },
 });
@@ -97,4 +124,8 @@ const hidePopover = () => {
 onClickOutside(popover, () => {
   hidePopover();
 });
+
+const classes = computed(() => ({
+  "mb-2 lg:mr-2": props.allowRange,
+}));
 </script>

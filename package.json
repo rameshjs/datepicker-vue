@@ -1,7 +1,8 @@
 {
   "name": "@ramesh-exe/datepicker-vue",
-  "files": ["dist"],
-  "type": "module",
+  "files": [
+    "dist"
+  ],
   "main": "./dist/datepicker-vue.umd.cjs",
   "module": "./dist/datepicker-vue.js",
   "style": "dist/style.css",
@@ -29,6 +30,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@vueuse/core": "^9.12.0",
     "autoprefixer": "^10.4.13",
     "date-fns": "^2.29.3",
     "postcss": "^8.4.21",

@@ -33,7 +33,7 @@ Import and register component
 import { createApp } from 'vue';
 import App from './App.vue';
 
-import {DatePicker} from '@ramesh-exe/datepicker-vue';
+import DatePicker from '@ramesh-exe/datepicker-vue';
 import '@ramesh-exe/datepicker-vue/dist/style.css';
 
 const app = createApp(App);
@@ -44,7 +44,7 @@ app.component('DatePicker', DatePicker);
 
 ```vue
 <script>
-    import {DatePicker} from '@ramesh-exe/datepicker-vue';
+    import DatePicker from '@ramesh-exe/datepicker-vue';
     import '@ramesh-exe/datepicker-vue/dist/style.css';
     
     export default {

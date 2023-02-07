@@ -11,22 +11,27 @@
       <slot
         name="datepicker-input"
         :start-date="startDate"
+        :end-date="endDate"
         :toggle="toggle"
         :showPopover="showPopover"
         :hidePopover="hidePopover"
       >
-        <Input
-          :label="label"
-          :placeholder="placeholder"
-          v-model="startDate"
-          @focus="showPopover"
-        />
-        <Input
-          :label="label"
-          :placeholder="placeholder"
-          v-model="endDate"
-          @focus="showPopover"
-        />
+        <div class="w-full flex flex-col lg:flex-row">
+          <Input
+            :label="startDateLabel"
+            :placeholder="startDatePlaceholder"
+            v-model="startDate"
+            @focus="showPopover"
+            :class="classes"
+          />
+          <Input
+            v-if="allowRange"
+            :label="endDateLabel"
+            :placeholder="endDatePlaceholder"
+            v-model="endDate"
+            @focus="showPopover"
+          />
+        </div>
       </slot>
     </slot>
     <template #content>
@@ -54,11 +59,19 @@ const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
   ...AllProps,
-  label: {
+  startDateLabel: {
     type: String,
     default: "",
   },
-  placeholder: {
+  endDateLabel: {
+    type: String,
+    default: "",
+  },
+  startDatePlaceholder: {
+    type: String,
+    default: "",
+  },
+  endDatePlaceholder: {
     type: String,
     default: "",
   },
@@ -111,4 +124,8 @@ const hidePopover = () => {
 onClickOutside(popover, () => {
   hidePopover();
 });
+
+const classes = computed(() => ({
+  "mb-2 lg:mr-2": props.allowRange,
+}));
 </script>

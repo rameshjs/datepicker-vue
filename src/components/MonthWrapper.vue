@@ -1,5 +1,5 @@
 <template>
-  <div class="max-h-[400px] overflow-visible overflow-x-hidden">
+  <div class="max-h-[350px] overflow-visible overflow-x-hidden">
     <Month
       v-if="!showMonthPicker && !showYearPicker"
       :month="month"

@@ -5,7 +5,7 @@
       :key="index"
       :class="{
         'w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize font-bold text-slate-600': true,
-        'bg-slate-200': index === modelValue,
+        'bg-slate-100': index === modelValue,
       }"
       @click="selectMonth(index)"
     >

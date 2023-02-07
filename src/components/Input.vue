@@ -31,6 +31,8 @@
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       :placeholder="placeholder"
       v-model="inputData"
+      @focus="focus"
+      @blur="blur"
     />
   </div>
 </template>
@@ -42,7 +44,7 @@ export default {
 <script setup>
 import { computed } from "vue";
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "focus", "blur"]);
 
 const props = defineProps({
   label: {
@@ -75,4 +77,12 @@ const inputData = computed({
     emit("update:modelValue", value);
   },
 });
+
+const focus = (event) => {
+  emit("focus", event);
+};
+
+const blur = (event) => {
+  emit("blur", event);
+};
 </script>

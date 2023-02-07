@@ -14,5 +14,5 @@ export const AllProps = {
   inline: {
     type: Boolean,
     default: true,
-  }
+  },
 };

@@ -6,7 +6,9 @@
     v-model="selectedDate"
   />
   <Popper v-else>
-    <Input :label="label" :placeholder="placeholder" v-model="startDate" />
+    <slot name="trigger-datepicker">
+      <Input :label="label" :placeholder="placeholder" v-model="startDate" />
+    </slot>
     <template #content>
       <div class="w-[400px]">
         <SingleView :month="month" :year="year" v-model="selectedDate" />

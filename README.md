@@ -85,16 +85,21 @@ In this example, a reactive object `date` is defined using the `ref` function fr
 The selected date range can be updated using the date picker component, which provides options for selecting a single date or a range of dates. When a single date is selected, the `start` and `end` properties of the `date` object will be set to the same date. When a range of dates is selected, the `start` and `end` properties will be set to the respective start and end dates of the range.
 
 
-## Props
-- modelValue: The selected date range, which is an object with properties start and end.
-- inline: Whether the datepicker is shown inline or as a popover.
-- allowRange: Whether a date range can be selected or only a single date.
-- startDateLabel: The label for the start date input.
-- endDateLabel: The label for the end date input.
-- startDatePlaceholder: The placeholder for the start date input.
-- endDatePlaceholder: The placeholder for the end date input.
 
-## Slots
-- trigger-datepicker: The slot for the custom datepicker trigger.
-- datepicker-input: The slot for the datepicker input customization.
+| Props           | Description                                                                                            |
+|-----------------|--------------------------------------------------------------------------------------------------------|
+| inline          | Whether the datepicker is shown inline or as a popover with text fields.                                                |
+| allowRange      | Whether a date range can be selected or only a single date.                                            |
+| startDateLabel  | The label for the start date input.                                                                    |
+| endDateLabel    | The label for the end date input.                                                                      |
+| startDatePlaceholder | The placeholder for the start date input.                                                          |
+| endDatePlaceholder   | The placeholder for the end date input.                                                        |
+| month   | Defaut month to be selected when datepicker is loaded.                                                        |
+| year   | Defaut year to be selected when datepicker is loaded.                                                            |
+
+| Slots           | Description                                                                                            |
+|-----------------|--------------------------------------------------------------------------------------------------------|
+| trigger-datepicker | The custom datepicker trigger slot will have a `toggle` method available.                           |
+| datepicker-input   | The datepicker input customization slot will have `toggle`, `showPopover`, and `hidePopover` methods available and the input values can be accessed using `start-date` and `end-date`.                                                     |
+
 

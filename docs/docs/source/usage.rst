@@ -55,20 +55,20 @@ Usage
 
 To use the component in your template, add the DatePicker component with the desired props and slots.
 
-.. code-block:: javascript
+.. highlight:: javascript
+   ::
+      <template>
+         <DatePicker v-model="date" />
+      </template>
 
-  <template>
-       <DatePicker v-model="date" />
-   </template>
+      <script setup>
+         import DatePicker from "@ramesh-exe/datepicker-vue";
+         import "/node_modules/@ramesh-exe/datepicker-vue/dist/style.css";
+         import { ref } from "vue";
 
-   <script setup>
-   import DatePicker from "@ramesh-exe/datepicker-vue";
-   import "/node_modules/@ramesh-exe/datepicker-vue/dist/style.css";
-   import { ref } from "vue";
-
-   const date = ref({ start: null, end: null });
-   </script>
+         const date = ref({ start: null, end: null });
+      </script>
    
 In this example, a reactive object ``date`` is defined using the ``ref`` function from the Vue.js library. The date object contains properties ``start`` and ``end`` for representing the selected date range. By default, both ``start`` and ``end`` are set to null.
 
-When a single date is selected, the ``start`` and ``end`` properties of the date object will be set to the same date. When a range of dates is selected, the ``start`` and ``end`` properties will be set to the respective start and end dates of the range.
+When a single date is selected, the ``start`` and ``end`` properties of the date object will be set to the same date. When a range of dates is selected, the ``start`` and ``end`` properties will be set to the respective ``start`` and ``end`` dates of the range.

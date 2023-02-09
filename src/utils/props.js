@@ -8,7 +8,7 @@ export const AllProps = {
     default: new Date().getFullYear(),
   },
   modelValue: {
-    type: [Object, Number],
+    type: [Object, Number, Date],
     default: null,
   },
   inline: {

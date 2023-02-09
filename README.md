@@ -3,9 +3,9 @@
 
 ### Complete and highly customizable datepicker for vue3
 
-## [DOCUMENTATION](https://datepicker-vue-docs.readthedocs.io/en/latest/index.html)
+## [DOCUMENTATION](https://datepicker-vue-docs.readthedocs.io/en/latest/index.html){:target="_blank"}
 
-[StackBlitz Playground](https://stackblitz.com/edit/ramesh-exedatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)
+[StackBlitz Playground](https://stackblitz.com/edit/ramesh-exedatepicker-vue?file=src%2Fcomponents%2FPlayground.vue){:target="_blank"}
 
 ## Features
 

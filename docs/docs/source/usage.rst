@@ -55,7 +55,7 @@ Usage
 
 To use the component in your template, add the DatePicker component with the desired props and slots.
 
-.. highlight:: html
+.. highlight:: javascript
    ::
       <template>
          <DatePicker v-model="date" />

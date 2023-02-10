@@ -34,7 +34,7 @@
       </slot>
     </slot>
     <template #content>
-      <div class="w-[400px]">
+      <div class="w-[400px] drop-shadow-lg">
         <SingleView
           :month="month"
           :year="year"

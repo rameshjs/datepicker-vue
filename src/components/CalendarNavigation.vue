@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex justify-between">
+  <div class="w-full flex justify-between border-b-2">
     <button class="p-2 hover:bg-slate-100 rounded" @click="prevMonthNav">
       <svg
         xmlns="http://www.w3.org/2000/svg"

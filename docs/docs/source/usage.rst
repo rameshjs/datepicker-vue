@@ -39,7 +39,7 @@ Local
 
 To import and register the component locally in a Vue component, use the following code:
 
-.. code-block:: javascript
+.. code-block:: html
 
    <script>
        import DatePicker from '@ramesh-exe/datepicker-vue';

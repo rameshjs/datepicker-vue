@@ -9,7 +9,7 @@ Pass custom trigger for date picker popover replacing the text field when ``inli
 
 We will have access to the popover ``toggle`` property.
 
-.. code-block:: javascript
+.. code-block:: html
 
   <template>
       <Datepicker v-model="date">
@@ -40,7 +40,7 @@ The datepicker input customization slot will have ``toggle``, ``showPopover``, a
 methods available and the input values can be accessed using ``start-date`` and ``end-date``.
 
 
-.. code-block:: javascript
+.. code-block:: html
 
   <template>
       <Datepicker v-model="date">

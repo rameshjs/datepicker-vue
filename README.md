@@ -79,19 +79,3 @@ const date = ref({ start: null, end: null });
 In this example, a reactive object `date` is defined using the `ref` function from the Vue.js library. The `date` object contains properties `start` and `end` for representing the selected date range. By default, both `start` and `end` are set to `null`.
 
 When a single date is selected, the `start` and `end` properties of the date object will be set to the same date. When a range of dates is selected, the `start` and `end` properties will be set to the respective `start` and `end` dates of the range.
-
-| Props                | Description                                                              |
-| -------------------- | ------------------------------------------------------------------------ |
-| inline               | Whether the datepicker is shown inline or as a popover with text fields. |
-| allowRange           | Whether a date range can be selected or only a single date.              |
-| startDateLabel       | The label for the start date input.                                      |
-| endDateLabel         | The label for the end date input.                                        |
-| startDatePlaceholder | The placeholder for the start date input.                                |
-| endDatePlaceholder   | The placeholder for the end date input.                                  |
-| month                | Defaut month to be selected when datepicker is loaded.                   |
-| year                 | Defaut year to be selected when datepicker is loaded.                    |
-
-| Slots              | Description                                                                                                                                                                            |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| trigger-datepicker | The custom datepicker trigger slot will have a `toggle` method available.                                                                                                              |
-| datepicker-input   | The datepicker input customization slot will have `toggle`, `showPopover`, and `hidePopover` methods available and the input values can be accessed using `start-date` and `end-date`. |

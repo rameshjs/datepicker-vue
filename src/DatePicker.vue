@@ -87,10 +87,17 @@ watch([startDate, endDate], ([newStartDate, newEndDate]) => {
 });
 
 const updateModel = (start, end) => {
-  emit("update:modelValue", {
-    start: start,
-    end: end,
-  });
+  if (props.allowRange) {
+    emit("update:modelValue", {
+      start: start,
+      end: end,
+    });
+  } else {
+    emit("update:modelValue", {
+      start: start,
+      end: start,
+    });
+  }
 };
 
 const updateInput = (start, end) => {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white rounded">
     <CalendarNavigation
       v-model:month="selectedMonth"
       v-model:year="selectedYear"

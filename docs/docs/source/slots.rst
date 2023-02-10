@@ -11,27 +11,27 @@ We will have access to the popover ``toggle`` property.
 
 .. code-block:: html
 
-  <template>
-      <Datepicker v-model="date">
-          <template #trigger-datepicker={ toggle }>
-              <button @click="toggle">Open date picker</button>
-          </template>
-      </Datepicker>
-  </template>
+    <template>
+        <Datepicker v-model="date">
+            <template #trigger-datepicker={ toggle }>
+                <button @click="toggle">Open date picker</button>
+            </template>
+        </Datepicker>
+    </template>
 
-  <script>
-  import { ref } from 'vue';
+    <script>
+    import { ref } from 'vue';
 
-  export default {
-      setup() {
-          const date = ref({start: null, end: null});
+    export default {
+        setup() {
+            const date = ref({start: null, end: null});
 
-          return {
-              date,
-          }
-      }
-  }
-  </script>
+            return {
+                date,
+            }
+        }
+    }
+    </script>
 
 datepicker-input	
 ------------
@@ -42,24 +42,24 @@ methods available and the input values can be accessed using ``start-date`` and 
 
 .. code-block:: html
 
-  <template>
-      <Datepicker v-model="date">
-          <template #datepicker-input="{ toggle, showPopover, hidePopover, start-date, end-date }">
-            <input type="text" @focus="showPopover" @blur="hidePopover" :value="start-date" />
-          </template>
-      </Datepicker>
-  </template>
+    <template>
+        <Datepicker v-model="date">
+            <template #datepicker-input="{ toggle, showPopover, hidePopover, start-date, end-date }">
+                <input type="text" @focus="showPopover" @blur="hidePopover" :value="start-date" />
+            </template>
+        </Datepicker>
+    </template>
 
-  <script>
-  import { ref } from 'vue';
+    <script>
+    import { ref } from 'vue';
 
-  export default {
-      setup() {
-          const date = ref({start: null, end: null});
+    export default {
+        setup() {
+            const date = ref({start: null, end: null});
 
-          return {
-              date,
-          }
-      }
-  }
-  </script>
+            return {
+                date,
+            }
+        }
+    }
+    </script>

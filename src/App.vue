@@ -1,12 +1,4 @@
 <template>
-  <div class="p-3">
-    <DatePicker v-model="selectedDate" :inline="false" allow-range />
-    {{ selectedDate }}
-  </div>
+  <div class="p-3"></div>
 </template>
-<script setup>
-import { ref } from "vue";
-import DatePicker from "./DatePicker.vue";
-
-const selectedDate = ref({ start: null, end: null });
-</script>
+<script setup></script>

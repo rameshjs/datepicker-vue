@@ -60,3 +60,10 @@ The placeholder for the end date input.
 
 * Type ``String``
 * Default ``""``
+
+formatDateInput
+------------
+To change default text field date format pass your desired date format.
+
+* Type ``String``
+* Default ``dd-MM-yyyy``

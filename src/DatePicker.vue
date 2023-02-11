@@ -74,16 +74,27 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  formatDateInput: {
+    type: String,
+    default: "dd-MM-yyyy",
+  },
 });
 
 const popover = ref(null);
 const isOpen = ref(false);
 
-const startDate = ref(formatDateInput(props.modelValue.start));
-const endDate = ref(formatDateInput(props.modelValue.end));
+const startDate = ref(
+  formatDateInput(props.modelValue.start, props.formatDateInput)
+);
+const endDate = ref(
+  formatDateInput(props.modelValue.end, props.formatDateInput)
+);
 
 watch([startDate, endDate], ([newStartDate, newEndDate]) => {
-  updateModel(parseTextToDate(newStartDate), parseTextToDate(newEndDate));
+  updateModel(
+    parseTextToDate(newStartDate, props.formatDateInput),
+    parseTextToDate(newEndDate, props.formatDateInput)
+  );
 });
 
 const updateModel = (start, end) => {
@@ -101,8 +112,8 @@ const updateModel = (start, end) => {
 };
 
 const updateInput = (start, end) => {
-  startDate.value = formatDateInput(start);
-  endDate.value = formatDateInput(end);
+  startDate.value = formatDateInput(start, props.formatDateInput);
+  endDate.value = formatDateInput(end, props.formatDateInput);
 };
 
 const selectedDate = computed({

@@ -120,15 +120,15 @@ export const prevMonth = (month, year) => {
   }
 };
 
-export const formatDateInput = (date) => {
+export const formatDateInput = (date, dateFormat) => {
   if (date) {
-    return format(date, "dd-MM-yyyy");
+    return format(date, dateFormat);
   }
   return null;
 };
 
-export const parseTextToDate = (value) => {
-  const parsedDate = parse(value, "dd-MM-yyyy", new Date());
+export const parseTextToDate = (value, dateFormat) => {
+  const parsedDate = parse(value, dateFormat, new Date());
   if (isValid(parsedDate) && isDate(parsedDate)) {
     return parsedDate;
   }

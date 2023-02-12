@@ -6,7 +6,7 @@
 
 
 
-[StackBlitz Playground](https://stackblitz.com/edit/ramesh-exedatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)
+### [Demo](https://stackblitz.com/edit/ramesh-exedatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)
 
 ## Features
 

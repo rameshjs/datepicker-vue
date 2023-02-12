@@ -1,11 +1,19 @@
 <template>
-  <SingleView
-    v-if="inline"
-    :month="month"
-    :year="year"
-    v-model="selectedDate"
-    :allowRange="allowRange"
-  />
+  <div v-if="inline">
+    <MultiView
+      v-if="multiMonth"
+      :month="month"
+      :year="year"
+      v-model="selectedDate"
+    />
+    <SingleView
+      v-else
+      :month="month"
+      :year="year"
+      v-model="selectedDate"
+      :allowRange="allowRange"
+    />
+  </div>
   <Popper v-else ref="popover" :show="isOpen">
     <slot name="trigger-datepicker" :toggle="toggle">
       <slot
@@ -35,7 +43,14 @@
     </slot>
     <template #content>
       <div class="w-[400px] drop-shadow-lg">
+        <MultiView
+          v-if="multiMonth"
+          :month="month"
+          :year="year"
+          v-model="selectedDate"
+        />
         <SingleView
+          v-else
           :month="month"
           :year="year"
           v-model="selectedDate"
@@ -48,6 +63,7 @@
 <script setup>
 import { computed, ref, watch } from "vue";
 import SingleView from "./components/SingleView.vue";
+import MultiView from "./components/MultiView.vue";
 import Input from "./components/Input.vue";
 import Popper from "vue3-popper";
 import { AllProps } from "./utils/props";
@@ -98,7 +114,7 @@ watch([startDate, endDate], ([newStartDate, newEndDate]) => {
 });
 
 const updateModel = (start, end) => {
-  if (props.allowRange) {
+  if (props.allowRange || props.multiMonth) {
     emit("update:modelValue", {
       start: start,
       end: end,

@@ -4,8 +4,6 @@
 
 ## [DOCUMENTATION](https://datepicker-vue-docs.readthedocs.io/en/latest/index.html)
 
-
-
 ### [Demo](https://stackblitz.com/edit/ramesh-exedatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)
 
 ## Features
@@ -14,6 +12,8 @@
 - Single view date picker with text field for displaying the selected date
 - Single view date range picker for selecting a range of dates
 - Single view date range picker with text fields for displaying the selected start and end dates
+- Multi month date picker
+- Multi month date picker with text field for displaying the selected date range
 - Slots for customizing the trigger and input fields, allowing users to add their own elements for triggering the datepicker and displaying the selected date(s)
 - Month select feature, which allows users to select a specific month within a year
 - Year select feature, which allows users to select a specific year.

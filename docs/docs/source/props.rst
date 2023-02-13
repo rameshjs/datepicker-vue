@@ -29,6 +29,13 @@ Whether a date range can be selected or only a single date.
 * Type ``Boolean``
 * Default ``false``
 
+multiMonth
+------------
+Shows two calendars side by side.
+
+* Type ``Boolean``
+* Default ``false``
+
 startDateLabel
 ------------
 The label for the start date input.

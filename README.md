@@ -2,6 +2,10 @@
 
 ### Complete and highly customizable datepicker for vue3
 
+[![License](https://img.shields.io/npm/l/@ramesh-exe/datepicker-vue)](https://github.com/ramesh-exe/datepicker-vue/blob/main/LICENCE)
+[![npm](https://img.shields.io/npm/v/@ramesh-exe/datepicker-vue)](https://www.npmjs.com/package/@ramesh-exe/datepicker-vue)
+
+
 ## [DOCUMENTATION](https://datepicker-vue-docs.readthedocs.io/en/latest/index.html)
 
 ### [Demo](https://stackblitz.com/edit/ramesh-exedatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)

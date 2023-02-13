@@ -23,6 +23,7 @@ defineProps({
   ...AllProps,
 });
 
+/** Emits selected month index. */
 const selectMonth = (monthIndex) => {
   emit("update:modelValue", monthIndex);
 };

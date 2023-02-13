@@ -94,7 +94,7 @@ const props = defineProps({
   ...AllProps,
 });
 
-// Emits nextMonth event.
+/** Gets month and year from nextMonth method and emits. */
 const nextMonthNav = () => {
   const { month, year } = nextMonth(props.month, props.year);
   emit("update:month", month);
@@ -102,7 +102,7 @@ const nextMonthNav = () => {
   emit("next-month");
 };
 
-// Emits prevMonth event.
+/** Gets month and year from prevMonthNav method and emits. */
 const prevMonthNav = () => {
   const { month, year } = prevMonth(props.month, props.year);
   emit("update:month", month);
@@ -110,10 +110,12 @@ const prevMonthNav = () => {
   emit("prev-month");
 };
 
+/** Emits toggle event when a month is selected. */
 const selectMonth = () => {
   emit("toggle", "month-select");
 };
 
+/** Emits toggle event when a year is selected. */
 const selectYear = () => {
   emit("toggle", "year-select");
 };

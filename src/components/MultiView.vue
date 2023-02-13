@@ -61,14 +61,19 @@ const emit = defineEmits(["update:modelValue"]);
 const firstCalendarToggleState = ref({ month: false, year: false });
 const secondCalendarToggleState = ref({ month: false, year: false });
 const firstCalendarMonthAndYear = ref({ month: props.month, year: props.year });
+/** Passing month and year props to nextMonth method to ensure second calendar
+ *  does not render same month and year as first calendat.
+ */
 const secondCalendarMonthAndYear = ref(nextMonth(props.month, props.year));
 
-// Gets selected date from Month component and emits back to Datepicker component.
+/**Emits selected date to modelValue */
 const selectedDate = (date) => {
-  console.log(date);
   emit("update:modelValue", rangeSelect(date, props.modelValue));
 };
 
+/**First calendar navigation logic
+ * Checks second calendar selected year and month and renders month and year.
+ */
 const firstCalendarNav = () => {
   const { month, year } = firstCalendarMonthAndYear.value;
   if (
@@ -82,6 +87,9 @@ const firstCalendarNav = () => {
   }
 };
 
+/**Second calendar navigation logic
+ * Checks first calendar selected year and month and renders month and year.
+ */
 const secondCalendarNav = () => {
   const { month, year } = secondCalendarMonthAndYear.value;
   if (
@@ -95,7 +103,44 @@ const secondCalendarNav = () => {
   }
 };
 
-//When a modelValue is changes this updates the month and year from selected date.
+/** Toggle state of month and year of first calendar */
+const firstCalendarToggle = (event) => {
+  if (event === "month-select") {
+    firstCalendarToggleState.value.year = false;
+    firstCalendarToggleState.value.month =
+      !firstCalendarToggleState.value.month;
+  } else {
+    firstCalendarToggleState.value.month = false;
+    firstCalendarToggleState.value.year = !firstCalendarToggleState.value.year;
+  }
+};
+
+/** Toggle state of month and year of second calendar */
+const secondCalendarToggle = (event) => {
+  if (event === "month-select") {
+    secondCalendarToggleState.value.year = false;
+    secondCalendarToggleState.value.month =
+      !secondCalendarToggleState.value.month;
+  } else {
+    secondCalendarToggleState.value.month = false;
+    secondCalendarToggleState.value.year =
+      !secondCalendarToggleState.value.year;
+  }
+};
+
+/** Close first calendar month and year picker */
+const closeFirstSelecter = () => {
+  firstCalendarToggleState.value = { month: false, year: false };
+  firstCalendarNav();
+};
+
+/** Close second calendar month and year picker */
+const closeSecondSelecter = () => {
+  secondCalendarToggleState.value = { month: false, year: false };
+  secondCalendarNav();
+};
+
+/** Watch selected date and update month and year in navigation. */
 watch(
   () => props.modelValue,
   (newModelValue) => {
@@ -111,43 +156,9 @@ watch(
         year: newModelValue.end.getFullYear(),
       };
     }
-    //This makes sure month is rendered in order.
+    /** Calling navigation control to ensure month and year is rendered in order. */
     firstCalendarNav();
     secondCalendarNav();
   }
 );
-
-// Changes state of month and year picker.
-const firstCalendarToggle = (event) => {
-  if (event === "month-select") {
-    firstCalendarToggleState.value.year = false;
-    firstCalendarToggleState.value.month =
-      !firstCalendarToggleState.value.month;
-  } else {
-    firstCalendarToggleState.value.month = false;
-    firstCalendarToggleState.value.year = !firstCalendarToggleState.value.year;
-  }
-};
-
-// Changes state of month and year picker.
-const secondCalendarToggle = (event) => {
-  if (event === "month-select") {
-    secondCalendarToggleState.value.year = false;
-    secondCalendarToggleState.value.month =
-      !secondCalendarToggleState.value.month;
-  } else {
-    secondCalendarToggleState.value.month = false;
-    secondCalendarToggleState.value.year =
-      !secondCalendarToggleState.value.year;
-  }
-};
-
-const closeFirstSelecter = () => {
-  firstCalendarToggleState.value = { month: false, year: false };
-  firstCalendarNav();
-};
-const closeSecondSelecter = () => {
-  secondCalendarToggleState.value = { month: false, year: false };
-  secondCalendarNav();
-};
 </script>

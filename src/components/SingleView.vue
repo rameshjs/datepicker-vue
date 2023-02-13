@@ -35,6 +35,12 @@ const props = defineProps({
   ...AllProps,
 });
 
+/**
+ * Emits selected date in start and end date object.
+ * Incase of single view calendar both start and end date are same.
+ * Incase of multiMonth calendar start and end dates selected date range.
+ * rangeSelect takes selected date and modelValue with previously selected dates and returns date range.
+ */
 const selectedDate = (date) => {
   if (props.allowRange) {
     emit("update:modelValue", rangeSelect(date, props.modelValue));
@@ -43,6 +49,7 @@ const selectedDate = (date) => {
   }
 };
 
+/** When date is changed month and year in navigation is updated. */
 watch(
   () => props.modelValue,
   (newModelValue) => {
@@ -53,6 +60,7 @@ watch(
   }
 );
 
+/** Enable month or year picker. */
 const toggle = (event) => {
   if (event === "month-select") {
     monthPicker.value = !monthPicker.value;
@@ -63,6 +71,7 @@ const toggle = (event) => {
   }
 };
 
+/** Close month and year picker */
 const closePicker = () => {
   monthPicker.value = false;
   yearPicker.value = false;

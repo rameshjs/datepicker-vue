@@ -38,10 +38,12 @@ const props = defineProps({
   },
 });
 
+/**Emits selected date */
 const selectedDate = (date) => {
   emit("selectDate", date);
 };
 
+/** Emits selected month and close picker event. */
 const month = computed({
   get() {
     return props.month;
@@ -52,6 +54,7 @@ const month = computed({
   },
 });
 
+/** Emits selected year and close picker event. */
 const year = computed({
   get() {
     return props.year;

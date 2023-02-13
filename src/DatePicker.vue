@@ -105,6 +105,7 @@ const props = defineProps({
 const popover = ref(null);
 const isOpen = ref(false);
 
+/** formatDateInput formats date object to readable format provided. */
 const startDate = ref(
   formatDateInput(props.modelValue.start, props.formatDateInput)
 );
@@ -112,6 +113,9 @@ const endDate = ref(
   formatDateInput(props.modelValue.end, props.formatDateInput)
 );
 
+/** When text field is changed provided date is converted
+ *  to date object and modelValue is updated.
+ */
 watch([startDate, endDate], ([newStartDate, newEndDate]) => {
   updateModel(
     parseTextToDate(newStartDate, props.formatDateInput),
@@ -119,6 +123,10 @@ watch([startDate, endDate], ([newStartDate, newEndDate]) => {
   );
 });
 
+/** Updates modelValue with provided start and end date.
+ * Incase of singleview calendar start and end date are same.
+ * Incase of multiMonth or range select start and end date are selected date range.
+ */
 const updateModel = (start, end) => {
   if (props.allowRange || props.multiMonth) {
     emit("update:modelValue", {
@@ -133,11 +141,13 @@ const updateModel = (start, end) => {
   }
 };
 
+/** Update text field with readable format. */
 const updateInput = (start, end) => {
   startDate.value = formatDateInput(start, props.formatDateInput);
   endDate.value = formatDateInput(end, props.formatDateInput);
 };
 
+/** Emits selected date */
 const selectedDate = computed({
   get() {
     return props.modelValue;
@@ -148,18 +158,22 @@ const selectedDate = computed({
   },
 });
 
+/** Toggles popover */
 const toggle = () => {
   isOpen.value = !isOpen.value;
 };
 
+/** Open popover */
 const showPopover = () => {
   isOpen.value = true;
 };
 
+/** Close popover */
 const hidePopover = () => {
   isOpen.value = false;
 };
 
+/** Close popover when clicked outside */
 onClickOutside(popover, () => {
   hidePopover();
 });

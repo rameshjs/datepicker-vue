@@ -43,6 +43,7 @@ const props = defineProps({
 
 const formattedDate = computed(() => props.day.getDate());
 
+/**Emits selected date */
 const selectDate = () => {
   emit("selectDate", props.day);
 };

@@ -86,6 +86,8 @@ const emit = defineEmits([
   "year-select",
   "update:month",
   "update:year",
+  "prev-month",
+  "next-month",
 ]);
 
 const props = defineProps({
@@ -97,6 +99,7 @@ const nextMonthNav = () => {
   const { month, year } = nextMonth(props.month, props.year);
   emit("update:month", month);
   emit("update:year", year);
+  emit("next-month");
 };
 
 // Emits prevMonth event.
@@ -104,6 +107,7 @@ const prevMonthNav = () => {
   const { month, year } = prevMonth(props.month, props.year);
   emit("update:month", month);
   emit("update:year", year);
+  emit("prev-month");
 };
 
 const selectMonth = () => {

@@ -1,6 +1,12 @@
 <template>
   <div class="flex w-full flex-col lg:flex-row">
-    <div :class="{ 'w-full': inline, 'w-[400px]': !inline }">
+    <div
+      :class="{
+        'bg-white': true,
+        'w-full': inline,
+        'w-[400px]': !inline,
+      }"
+    >
       <CalendarNavigation
         v-model:month="firstCalendarMonthAndYear.month"
         v-model:year="firstCalendarMonthAndYear.year"
@@ -16,10 +22,10 @@
         :showMonthPicker="firstCalendarToggleState.month"
         :showYearPicker="firstCalendarToggleState.year"
         @selectDate="selectedDate"
-        @toggle="closeFirstSelecter"
+        @close-picker="closeFirstSelecter"
       />
     </div>
-    <div :class="{ 'w-full': inline, 'w-[400px]': !inline }">
+    <div :class="{ 'bg-white': true, 'w-full': inline, 'w-[400px]': !inline }">
       <CalendarNavigation
         v-model:month="secondCalendarMonthAndYear.month"
         v-model:year="secondCalendarMonthAndYear.year"
@@ -35,7 +41,7 @@
         :showMonthPicker="secondCalendarToggleState.month"
         :showYearPicker="secondCalendarToggleState.year"
         @selectDate="selectedDate"
-        @toggle="closeSecondSelecter"
+        @close-picker="closeSecondSelecter"
       />
     </div>
   </div>

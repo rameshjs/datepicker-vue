@@ -32,7 +32,7 @@
             @focus="showPopover"
           />
           <Input
-            v-if="allowRange"
+            v-if="allowRange || multiMonth"
             :label="endDateLabel"
             :placeholder="endDatePlaceholder"
             v-model="endDate"
@@ -42,7 +42,13 @@
       </slot>
     </slot>
     <template #content>
-      <div class="w-[400px] drop-shadow-lg">
+      <div
+        :class="{
+          'drop-shadow-lg': true,
+          'w-full lg:w-[800px]': multiMonth,
+          'w-full lg:w-[400px]': !multiMonth,
+        }"
+      >
         <MultiView
           v-if="multiMonth"
           :month="month"

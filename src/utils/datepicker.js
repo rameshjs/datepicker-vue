@@ -157,7 +157,6 @@ export const rangeSelect = (date, selectedDateRange) => {
   return range;
 };
 
-// Checks if both the dates passed or same.
 export const isSameDay = (day1, day2) => {
   if (day1 && day2) {
     return (

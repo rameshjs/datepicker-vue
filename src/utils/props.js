@@ -19,6 +19,10 @@ export const AllProps = {
     type: Boolean,
     default: false,
   },
+  multiMonth: {
+    type: Boolean,
+    default: false,
+  },
   selectedDateRange: {
     tyoe: Object,
     default: null,

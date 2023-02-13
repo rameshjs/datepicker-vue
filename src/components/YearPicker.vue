@@ -26,9 +26,11 @@ const props = defineProps({
   ...AllProps,
 });
 
+/** Emit selected year. */
 const selectYear = (year) => {
   emit("update:modelValue", year);
 };
 
+/** Generates range of years provided */
 const years = computed(() => yearRange(1972, props.year));
 </script>

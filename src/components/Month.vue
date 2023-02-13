@@ -53,10 +53,13 @@ const props = defineProps({
   ...AllProps,
 });
 
+/**Emits selected date */
 const selectedDate = (date) => {
   emit("selectDate", date);
 };
 
+/** Generates weeks for a provided month and year. */
 const weeks = computed(() => getWeeksForMonth(props.month, props.year));
+/** Generates range of dates between two date range. */
 const dateRange = computed(() => getDatesInRange(props.selectedDateRange));
 </script>

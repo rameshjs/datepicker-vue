@@ -1,11 +1,19 @@
 <template>
-  <SingleView
-    v-if="inline"
-    :month="month"
-    :year="year"
-    v-model="selectedDate"
-    :allowRange="allowRange"
-  />
+  <div v-if="inline">
+    <MultiView
+      v-if="multiMonth"
+      :month="month"
+      :year="year"
+      v-model="selectedDate"
+    />
+    <SingleView
+      v-else
+      :month="month"
+      :year="year"
+      v-model="selectedDate"
+      :allowRange="allowRange"
+    />
+  </div>
   <Popper v-else ref="popover" :show="isOpen">
     <slot name="trigger-datepicker" :toggle="toggle">
       <slot
@@ -24,7 +32,7 @@
             @focus="showPopover"
           />
           <Input
-            v-if="allowRange"
+            v-if="allowRange || multiMonth"
             :label="endDateLabel"
             :placeholder="endDatePlaceholder"
             v-model="endDate"
@@ -34,8 +42,21 @@
       </slot>
     </slot>
     <template #content>
-      <div class="w-[400px] drop-shadow-lg">
+      <div
+        :class="{
+          'drop-shadow-lg': true,
+          'w-full lg:w-[800px]': multiMonth,
+          'w-full lg:w-[400px]': !multiMonth,
+        }"
+      >
+        <MultiView
+          v-if="multiMonth"
+          :month="month"
+          :year="year"
+          v-model="selectedDate"
+        />
         <SingleView
+          v-else
           :month="month"
           :year="year"
           v-model="selectedDate"
@@ -48,6 +69,7 @@
 <script setup>
 import { computed, ref, watch } from "vue";
 import SingleView from "./components/SingleView.vue";
+import MultiView from "./components/MultiView.vue";
 import Input from "./components/Input.vue";
 import Popper from "vue3-popper";
 import { AllProps } from "./utils/props";
@@ -83,6 +105,7 @@ const props = defineProps({
 const popover = ref(null);
 const isOpen = ref(false);
 
+/** formatDateInput formats date object to readable format provided. */
 const startDate = ref(
   formatDateInput(props.modelValue.start, props.formatDateInput)
 );
@@ -90,6 +113,9 @@ const endDate = ref(
   formatDateInput(props.modelValue.end, props.formatDateInput)
 );
 
+/** When text field is changed provided date is converted
+ *  to date object and modelValue is updated.
+ */
 watch([startDate, endDate], ([newStartDate, newEndDate]) => {
   updateModel(
     parseTextToDate(newStartDate, props.formatDateInput),
@@ -97,8 +123,12 @@ watch([startDate, endDate], ([newStartDate, newEndDate]) => {
   );
 });
 
+/** Updates modelValue with provided start and end date.
+ * Incase of singleview calendar start and end date are same.
+ * Incase of multiMonth or range select start and end date are selected date range.
+ */
 const updateModel = (start, end) => {
-  if (props.allowRange) {
+  if (props.allowRange || props.multiMonth) {
     emit("update:modelValue", {
       start: start,
       end: end,
@@ -111,11 +141,13 @@ const updateModel = (start, end) => {
   }
 };
 
+/** Update text field with readable format. */
 const updateInput = (start, end) => {
   startDate.value = formatDateInput(start, props.formatDateInput);
   endDate.value = formatDateInput(end, props.formatDateInput);
 };
 
+/** Emits selected date */
 const selectedDate = computed({
   get() {
     return props.modelValue;
@@ -126,18 +158,22 @@ const selectedDate = computed({
   },
 });
 
+/** Toggles popover */
 const toggle = () => {
   isOpen.value = !isOpen.value;
 };
 
+/** Open popover */
 const showPopover = () => {
   isOpen.value = true;
 };
 
+/** Close popover */
 const hidePopover = () => {
   isOpen.value = false;
 };
 
+/** Close popover when clicked outside */
 onClickOutside(popover, () => {
   hidePopover();
 });

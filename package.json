@@ -1,12 +1,12 @@
 {
-  "name": "@ramesh-exe/datepicker-vue",
+  "name": "@rameshjs/datepicker-vue",
   "files": [
     "dist"
   ],
   "main": "./dist/datepicker-vue.umd.js",
   "module": "./dist/datepicker-vue.mjs",
   "style": "dist/style.css",
-  "author": "@ramesh-exe",
+  "author": "rameshjs",
   "license": "MIT",
   "exports": {
     ".": {
@@ -20,9 +20,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ramesh-exe/datepicker-vue"
+    "url": "https://github.com/rameshjs/datepicker-vue"
   },
-  "version": "1.5.0",
+  "version": "1.7.0",
   "private": false,
   "scripts": {
     "dev": "vite",
@@ -51,5 +51,13 @@
     "prettier": "^2.7.1",
     "vite": "^4.0.0",
     "vitest": "^0.25.6"
-  }
+  },
+  "keywords": [
+    "vue",
+    "datepicker-vue",
+    "datepicker",
+    "date",
+    "datepicker-vue3",
+    "daterangepicker"
+  ]
 }

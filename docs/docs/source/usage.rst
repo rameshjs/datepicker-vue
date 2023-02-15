@@ -8,11 +8,11 @@ Installation
 
 .. code-block:: console
 
-   yarn add @ramesh-exe/datepicker-vue
+   yarn add @rameshjs/datepicker-vue
    
    or 
    
-   npm i @ramesh-exe/datepicker-vue
+   npm i @rameshjs/datepicker-vue
    
 Then import and register component
 
@@ -27,8 +27,8 @@ To import and register the component globally in your Vue application, use the f
    import { createApp } from 'vue';
    import App from './App.vue';
 
-   import DatePicker from '@ramesh-exe/datepicker-vue';
-   import '@ramesh-exe/datepicker-vue/dist/style.css';
+   import DatePicker from '@rameshjs/datepicker-vue';
+   import '@rameshjs/datepicker-vue/dist/style.css';
 
    const app = createApp(App);
    app.component('DatePicker', DatePicker);
@@ -42,8 +42,8 @@ To import and register the component locally in a Vue component, use the followi
 .. code-block:: html
 
    <script>
-       import DatePicker from '@ramesh-exe/datepicker-vue';
-       import '@ramesh-exe/datepicker-vue/dist/style.css';
+      import DatePicker from '@rameshjs/datepicker-vue';
+      import '@rameshjs/datepicker-vue/dist/style.css';
 
        export default {
            components: { DatePicker }
@@ -62,8 +62,8 @@ To use the component in your template, add the DatePicker component with the des
    </template>
 
    <script setup>
-      import DatePicker from "@ramesh-exe/datepicker-vue";
-      import "/node_modules/@ramesh-exe/datepicker-vue/dist/style.css";
+      import DatePicker from '@rameshjs/datepicker-vue';
+      import '@rameshjs/datepicker-vue/dist/style.css';
       import { ref } from "vue";
 
       const date = ref({ start: null, end: null });

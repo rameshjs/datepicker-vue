@@ -45,8 +45,7 @@
       <div
         :class="{
           'drop-shadow-lg': true,
-          'w-full lg:w-[800px]': multiMonth,
-          'w-full lg:w-[400px]': !multiMonth,
+          'w-[400px]': !multiMonth,
         }"
       >
         <MultiView

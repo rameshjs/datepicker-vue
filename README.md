@@ -1,14 +1,14 @@
-## @ramesh-exe/datepicker-vue
+## @rameshjs/datepicker-vue
 
 ### Complete and highly customizable datepicker for vue3
 
-[![License](https://img.shields.io/npm/l/@ramesh-exe/datepicker-vue)](https://github.com/ramesh-exe/datepicker-vue/blob/main/LICENCE)
-[![npm](https://img.shields.io/npm/v/@ramesh-exe/datepicker-vue)](https://www.npmjs.com/package/@ramesh-exe/datepicker-vue)
-![Downloads](https://img.shields.io/npm/dt/@ramesh-exe/datepicker-vue)
+[![License](https://img.shields.io/npm/l/@rameshjs/datepicker-vue)](https://github.com/rameshjs/datepicker-vue/blob/main/LICENCE)
+[![npm](https://img.shields.io/npm/v/@rameshjs/datepicker-vue)](https://www.npmjs.com/package/@rameshjs/datepicker-vue)
+![Downloads](https://img.shields.io/npm/dt/@rameshjs/datepicker-vue)
 
 ## [DOCUMENTATION](https://datepicker-vue-docs.readthedocs.io/en/latest/index.html)
 
-### [Demo](https://stackblitz.com/edit/ramesh-exedatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)
+### [Demo](https://stackblitz.com/edit/rameshjsdatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)
 
 ## Features
 
@@ -25,11 +25,11 @@
 ## Install
 
 ```shell
-yarn add @ramesh-exe/datepicker-vue
+yarn add @rameshjs/datepicker-vue
 
 # or
 
-npm i @ramesh-exe/datepicker-vue
+npm i @rameshjs/datepicker-vue
 ```
 
 Import and register component

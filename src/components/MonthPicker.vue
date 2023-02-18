@@ -1,11 +1,11 @@
 <template>
-  <div class="grid grid-cols-4 gap-1 bg-slate-200">
+  <div class="dp-month-picker-wrapper">
     <button
       v-for="(month, index) in months"
       :key="index"
       :class="{
-        'w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize font-bold text-slate-600': true,
-        'bg-slate-100': index === modelValue,
+        'dp-month-picker-cell': true,
+        'dp-month-picker-active-cell': index === modelValue,
       }"
       @click="selectMonth(index)"
     >

@@ -73,3 +73,18 @@
     @apply bg-slate-200;
 }
 /* End of day button. */
+
+/* Start of month picker. */
+.dp-month-picker-wrapper {
+    @apply grid grid-cols-4 gap-1 bg-slate-200;
+}
+.dp-month-picker-cell {
+    @apply w-full h-[76px] flex justify-center items-center bg-white capitalize font-bold text-slate-600;
+}
+.dp-month-picker-cell:hover {
+    @apply hover:bg-slate-100;
+}
+.dp-month-picker-active-cell {
+    @apply bg-slate-100;
+}
+/* End of month picker. */

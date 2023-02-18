@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full flex justify-between border-b-2">
-    <button class="p-2 hover:bg-slate-100 rounded" @click="prevMonthNav">
+  <div class="dp-nav-wrapper">
+    <button class="dp-nav-left-arrow" @click="prevMonthNav">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -18,7 +18,7 @@
     </button>
     <div class="flex">
       <button
-        class="p-2 hover:bg-slate-100 rounded mr-2 flex items-center font-bold text-slate-600"
+        class="flex items-center dp-nav-month-toggle"
         @click="selectMonth"
       >
         {{ months[month] }}
@@ -37,10 +37,7 @@
           />
         </svg>
       </button>
-      <button
-        class="p-2 hover:bg-slate-100 rounded flex items-center font-bold text-slate-600"
-        @click="selectYear"
-      >
+      <button class="flex items-center dp-nav-year-toggle" @click="selectYear">
         {{ year }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +55,7 @@
         </svg>
       </button>
     </div>
-    <button class="p-2 hover:bg-slate-100 rounded" @click="nextMonthNav">
+    <button class="dp-nav-right-arrow" @click="nextMonthNav">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

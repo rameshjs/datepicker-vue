@@ -1,15 +1,11 @@
 <template>
   <div>
-    <div class="grid grid-cols-7">
-      <div
-        v-for="weekDay in weekdayName"
-        :key="weekDay"
-        class="flex align-center justify-center font-bold capitalize p-3 text-slate-600"
-      >
+    <div class="dp-weekday-wrapper">
+      <div v-for="weekDay in weekdayName" :key="weekDay" class="dp-weekday">
         {{ weekDay.slice(0, 3) }}
       </div>
     </div>
-    <div v-for="week in weeks" :key="week" class="grid grid-cols-7">
+    <div v-for="week in weeks" :key="week" class="dp-days-wrapper">
       <div
         v-for="day in week"
         :key="day"

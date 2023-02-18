@@ -1,5 +1,6 @@
 @import './base.css';
 
+/* Start of calendar navigation. */
 .dp-nav-wrapper {
     @apply w-full flex justify-between border-b-2;
 }
@@ -23,3 +24,19 @@
 .dp-nav-right-arrow:hover {
     @apply bg-slate-100;
 }
+/* End of calendar navigation. */
+
+/* Start of week day name. */
+.dp-weekday {
+    @apply flex items-center justify-center font-bold capitalize p-3 text-slate-600;
+}
+.dp-weekday-wrapper {
+    @apply grid grid-cols-7;
+}
+/* End of week day name. */
+
+/* Start of days wrapper. */
+.dp-days-wrapper {
+    @apply grid grid-cols-7
+}
+/* End of days wrapper. */

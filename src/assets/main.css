@@ -75,16 +75,31 @@
 /* End of day button. */
 
 /* Start of month picker. */
-.dp-month-picker-wrapper {
+.dp-month-select-wrapper {
     @apply grid grid-cols-4 gap-1 bg-slate-200;
 }
-.dp-month-picker-cell {
+.dp-month-select-cell {
     @apply w-full h-[76px] flex justify-center items-center bg-white capitalize font-bold text-slate-600;
 }
-.dp-month-picker-cell:hover {
+.dp-month-select-cell:hover {
     @apply hover:bg-slate-100;
 }
-.dp-month-picker-active-cell {
+.dp-month-select-active-cell {
     @apply bg-slate-100;
 }
 /* End of month picker. */
+
+/* Start of year select. */
+.dp-year-select-wrapper {
+    @apply grid grid-cols-4 gap-1 bg-slate-200 max-h-[250px] overflow-visible overflow-x-hidden;
+}
+.dp-year-select-cell {
+    @apply w-full h-[76px] flex justify-center items-center bg-white capitalize font-bold text-slate-600;
+}
+.dp-year-select-cell:hover {
+    @apply bg-slate-100;
+}
+.dp-year-select-active-cell {
+    @apply bg-slate-100;
+}
+/* End of year select. */

@@ -1,13 +1,11 @@
 <template>
-  <div
-    class="grid grid-cols-4 gap-1 bg-slate-200 max-h-[250px] overflow-visible overflow-x-hidden"
-  >
+  <div class="dp-year-select-wrapper">
     <button
       v-for="year in years"
       :key="year"
       :class="{
-        'w-full h-[76px] hover:bg-slate-100 flex justify-center items-center bg-white capitalize font-bold text-slate-600': true,
-        'bg-slate-100': year === modelValue,
+        'dp-year-select-cell': true,
+        'dp-year-select-active-cell': year === modelValue,
       }"
       @click="selectYear(year)"
     >

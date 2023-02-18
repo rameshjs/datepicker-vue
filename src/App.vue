@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <DatePicker v-model="date" />
+    <DatePicker v-model="date" multi-month />
     {{ date }}
   </div>
 </template>

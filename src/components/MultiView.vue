@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full flex-col lg:flex-row">
+  <div class="flex w-full flex-col lg:flex-row" ref="multiViewRef">
     <div
       :class="{
         'bg-white': true,
@@ -52,6 +52,8 @@ import MonthWrapper from "./MonthWrapper.vue";
 import CalendarNavigation from "./CalendarNavigation.vue";
 import { rangeSelect, nextMonth, prevMonth } from "../utils/datepicker";
 import { ref, watch } from "vue";
+import { onClickOutside } from "@vueuse/core";
+
 const props = defineProps({
   ...AllProps,
 });
@@ -61,6 +63,8 @@ const emit = defineEmits(["update:modelValue"]);
 const firstCalendarToggleState = ref({ month: false, year: false });
 const secondCalendarToggleState = ref({ month: false, year: false });
 const firstCalendarMonthAndYear = ref({ month: props.month, year: props.year });
+const multiViewRef = ref(null);
+
 /** Passing month and year props to nextMonth method to ensure second calendar
  *  does not render same month and year as first calendat.
  */
@@ -161,4 +165,10 @@ watch(
     secondCalendarNav();
   }
 );
+
+/** Close month and year picker when clicked outside */
+onClickOutside(multiViewRef, () => {
+  closeFirstSelecter();
+  closeSecondSelecter();
+});
 </script>

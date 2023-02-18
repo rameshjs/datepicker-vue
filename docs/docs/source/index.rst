@@ -15,3 +15,4 @@ Contents
    usage
    props
    slots
+   customization

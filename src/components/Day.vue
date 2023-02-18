@@ -49,16 +49,15 @@ const selectDate = () => {
 };
 
 const defaultClasses = computed(() => ({
-  "p-3 w-full h-full hover:bg-slate-100 rounded font-medium": true,
+  "dp-single-month-day": true,
   "bg-blue-700 hover:bg-blue-800 text-white": props.selected,
   "bg-slate-200": props.today && !props.selected,
 }));
 
 const rangeClasses = computed(() => ({
-  "p-3 w-full h-full hover:bg-blue-500 rounded font-medium": true,
-  "rounded-none bg-blue-200 border-none": props.selected,
-  "bg-blue-500": props.isStart || props.isEnd,
-  "rounded-l-full text-white": props.isStart,
-  "rounded-r-full text-white": props.isEnd,
+  "dp-multi-month-day": true,
+  "dp-multi-month-day-selected": props.selected,
+  "dp-multi-month-day-start": props.isStart,
+  "dp-multi-month-day-end": props.isEnd,
 }));
 </script>

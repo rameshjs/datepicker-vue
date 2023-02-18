@@ -1,11 +1,11 @@
 <template>
-  <div class="dp-month-picker-wrapper">
+  <div class="dp-month-select-wrapper">
     <button
       v-for="(month, index) in months"
       :key="index"
       :class="{
-        'dp-month-picker-cell': true,
-        'dp-month-picker-active-cell': index === modelValue,
+        'dp-month-select-cell': true,
+        'dp-month-select-active-cell': index === modelValue,
       }"
       @click="selectMonth(index)"
     >

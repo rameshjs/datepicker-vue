@@ -52,12 +52,24 @@
     @apply bg-blue-500;
 }
 .dp-multi-month-day-selected {
-    @apply rounded-none bg-blue-200 border-none
+    @apply rounded-none bg-blue-200 border-none;
+}
+.dp-multi-month-day-selected:hover {
+    @apply rounded;
 }
 .dp-multi-month-day-start {
-    @apply rounded-l-full text-white bg-blue-500
+    @apply rounded-l-full text-white bg-blue-500;
 }
 .dp-multi-month-day-end {
-    @apply rounded-r-full text-white bg-blue-500
+    @apply rounded-r-full text-white bg-blue-500;
+}
+.dp-single-month-day-selected {
+    @apply bg-blue-700 text-white;
+}
+.dp-single-month-day-selected:hover {
+    @apply bg-blue-800;
+}
+.dp-day-highlight-today {
+    @apply bg-slate-200;
 }
 /* End of day button. */

@@ -1,1 +1,25 @@
 @import './base.css';
+
+.dp-nav-wrapper {
+    @apply w-full flex justify-between border-b-2;
+}
+.dp-nav-month-toggle {
+    @apply p-2 rounded mr-2  font-bold text-slate-600;
+}
+.dp-nav-month-toggle:hover {
+    @apply bg-slate-100;
+}
+.dp-nav-year-toggle {
+    @apply p-2 rounded mr-2  font-bold text-slate-600;
+}
+.dp-nav-year-toggle:hover {
+    @apply bg-slate-100;
+}
+.dp-nav-left-arrow,
+.dp-nav-right-arrow {
+    @apply p-2 rounded;
+}
+.dp-nav-left-arrow:hover,
+.dp-nav-right-arrow:hover {
+    @apply bg-slate-100;
+}

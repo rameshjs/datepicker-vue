@@ -50,8 +50,8 @@ const selectDate = () => {
 
 const defaultClasses = computed(() => ({
   "dp-single-month-day": true,
-  "bg-blue-700 hover:bg-blue-800 text-white": props.selected,
-  "bg-slate-200": props.today && !props.selected,
+  "dp-single-month-day-selected": props.selected,
+  "dp-day-highlight-today": props.today && !props.selected,
 }));
 
 const rangeClasses = computed(() => ({
@@ -59,5 +59,6 @@ const rangeClasses = computed(() => ({
   "dp-multi-month-day-selected": props.selected,
   "dp-multi-month-day-start": props.isStart,
   "dp-multi-month-day-end": props.isEnd,
+  "dp-day-highlight-today": props.today && !props.selected,
 }));
 </script>

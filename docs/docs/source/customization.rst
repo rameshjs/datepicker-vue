@@ -1,4 +1,4 @@
-Customization
+Customization Guidelines
 =====
 To customize the appearance of the date picker, the following CSS classes can be used:
 

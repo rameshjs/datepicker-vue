@@ -103,3 +103,12 @@
     @apply bg-slate-100;
 }
 /* End of year select. */
+
+/* Start of month. */
+.dp-month-wrapper {
+    @apply max-h-[350px] overflow-visible overflow-x-hidden;
+}
+.dp-background {
+    @apply bg-white;
+}
+/* End of month. */

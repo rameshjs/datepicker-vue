@@ -37,6 +37,27 @@
 
 /* Start of days wrapper. */
 .dp-days-wrapper {
-    @apply grid grid-cols-7
+    @apply grid grid-cols-7;
 }
 /* End of days wrapper. */
+
+/* Start of day button. */
+.dp-single-month-day, .dp-multi-month-day {
+    @apply p-3 w-full h-full rounded font-medium;
+}
+.dp-single-month-day:hover {
+    @apply bg-slate-100;
+}
+.dp-multi-month-day:hover {
+    @apply bg-blue-500;
+}
+.dp-multi-month-day-selected {
+    @apply rounded-none bg-blue-200 border-none
+}
+.dp-multi-month-day-start {
+    @apply rounded-l-full text-white bg-blue-500
+}
+.dp-multi-month-day-end {
+    @apply rounded-r-full text-white bg-blue-500
+}
+/* End of day button. */

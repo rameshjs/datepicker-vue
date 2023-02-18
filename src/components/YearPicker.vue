@@ -32,5 +32,5 @@ const selectYear = (year) => {
 };
 
 /** Generates range of years provided */
-const years = computed(() => yearRange(1972, props.year));
+const years = computed(() => yearRange(1972, props.modelValue).reverse());
 </script>

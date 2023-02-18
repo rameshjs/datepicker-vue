@@ -2,7 +2,7 @@
   <div class="flex w-full flex-col lg:flex-row" ref="multiViewRef">
     <div
       :class="{
-        'bg-white': true,
+        'dp-background': true,
         'w-full': inline,
         'w-[400px]': !inline,
       }"
@@ -25,7 +25,9 @@
         @close-picker="closeFirstSelecter"
       />
     </div>
-    <div :class="{ 'bg-white': true, 'w-full': inline, 'w-[400px]': !inline }">
+    <div
+      :class="{ 'dp-background': true, 'w-full': inline, 'w-[400px]': !inline }"
+    >
       <CalendarNavigation
         v-model:month="secondCalendarMonthAndYear.month"
         v-model:year="secondCalendarMonthAndYear.year"

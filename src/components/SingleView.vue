@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded">
+  <div class="bg-white rounded" ref="singleViewRef">
     <CalendarNavigation
       v-model:month="selectedMonth"
       v-model:year="selectedYear"
@@ -23,6 +23,7 @@ import CalendarNavigation from "./CalendarNavigation.vue";
 import MonthWrapper from "./MonthWrapper.vue";
 import { AllProps } from "../utils/props";
 import { rangeSelect } from "../utils/datepicker";
+import { onClickOutside } from "@vueuse/core";
 
 const emit = defineEmits(["update:modelValue"]);
 
@@ -30,6 +31,7 @@ const monthPicker = ref(false);
 const yearPicker = ref(false);
 const selectedMonth = ref(props.month);
 const selectedYear = ref(props.year);
+const singleViewRef = ref(null);
 
 const props = defineProps({
   ...AllProps,
@@ -76,4 +78,9 @@ const closePicker = () => {
   monthPicker.value = false;
   yearPicker.value = false;
 };
+
+/** Close month and year picker when clicked outside */
+onClickOutside(singleViewRef, () => {
+  closePicker();
+});
 </script>

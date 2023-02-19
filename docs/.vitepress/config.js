@@ -9,7 +9,7 @@ module.exports = {
       repo: 'rameshjs/datepicker-vue',
       docsRepo: 'rameshjs/datepicker-vue',
       docsDir: 'docs',
-      docsBranch: 'master',
+      docsBranch: 'main',
       editLinks: true,
   
       nav: [{ text: 'Guide', link: '/getting-started' }],

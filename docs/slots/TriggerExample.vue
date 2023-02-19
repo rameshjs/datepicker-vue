@@ -1,0 +1,23 @@
+<template>
+  <DatePicker v-model="date" :inline="false">
+    <template #trigger-datepicker="{ toggle }">
+      <button @click="toggle">Open date picker</button>
+    </template>
+  </DatePicker>
+</template>
+
+<script setup>
+import DatePicker from "@rameshjs/datepicker-vue";
+import "@rameshjs/datepicker-vue/dist/style.css";
+import { ref } from "vue";
+
+const date = ref({ start: null, end: null });
+</script>
+<style scoped>
+button {
+  padding: 5px;
+  background: rgb(47, 47, 143);
+  border-radius: 10px;
+  color: white;
+}
+</style>

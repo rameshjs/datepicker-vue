@@ -3,7 +3,7 @@ module.exports = {
     title: 'Datepicker vue',
     description: 'Vue.js 3 date picker component',
   
-    base: '/datepicker-vue3/',
+    base: '/datepicker-vue/',
   
     themeConfig: {
       repo: 'rameshjs/datepicker-vue',

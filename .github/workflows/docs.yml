@@ -1,36 +1,50 @@
 name: Deploy
+
 on:
-  workflow_dispatch: {}
   push:
     branches:
       - main
+
 jobs:
-  deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./docs
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
           node-version: 16
-          cache: yarn
+          
       - run: yarn install --frozen-lockfile
-      - name: Build
+
+      - name: Build project
         run: yarn docs:build
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
+
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
         with:
+          name: production-files
           path: ./docs/.vitepress/dist
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v1
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./docs/.vitepress/dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .vitepress/dist

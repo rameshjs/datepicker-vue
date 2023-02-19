@@ -13,11 +13,3 @@ import { ref } from "vue";
 
 const date = ref({ start: null, end: null });
 </script>
-<style scoped>
-button {
-  padding: 5px;
-  background: rgb(47, 47, 143);
-  border-radius: 10px;
-  color: white;
-}
-</style>

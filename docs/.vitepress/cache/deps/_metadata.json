@@ -1,0 +1,23 @@
+{
+  "hash": "1e100daa",
+  "browserHash": "14fd4be8",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "2fbb78d6",
+      "needsInterop": false
+    },
+    "@rameshjs/datepicker-vue": {
+      "src": "../../../../node_modules/@rameshjs/datepicker-vue/dist/datepicker-vue.mjs",
+      "file": "@rameshjs_datepicker-vue.js",
+      "fileHash": "693af60b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-R647EDCJ": {
+      "file": "chunk-R647EDCJ.js"
+    }
+  }
+}

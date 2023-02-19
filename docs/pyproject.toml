@@ -1,8 +1,0 @@
-[build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
-
-[project]
-name = "datepicker-vue"
-authors = [{name = "Ramesh Kumar", email = "rameshkumar.exe@gmail.com"}]
-dynamic = ["version", "description"]

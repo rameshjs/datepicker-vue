@@ -14,7 +14,7 @@
       :allowRange="allowRange"
     />
   </div>
-  <Popper v-else ref="popover" :show="isOpen" :id="id">
+  <Popper v-else class="w-full m-0 b-0" ref="popover" :show="isOpen" :id="id">
     <slot name="trigger-datepicker" :toggle="toggle">
       <slot
         name="datepicker-input"
@@ -26,6 +26,7 @@
       >
         <div class="w-full flex flex-col lg:flex-row">
           <Input
+            class="mr-0 mb-3 lg:mr-3 lg:mb-0"
             :label="startDateLabel"
             :placeholder="startDatePlaceholder"
             :name="startDateName"

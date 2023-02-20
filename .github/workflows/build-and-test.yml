@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm run test
+        run: npm run test:unit
 
       - name: Check compatibility with Node.js ${{ matrix.node-version }}
         run: npm run compatibility-check -- --target ${{ matrix.node-version }}

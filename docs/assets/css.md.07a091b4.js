@@ -1,4 +1,10 @@
-import{_ as s,o as n,c as a,a as l}from"./app.7bd6ba26.js";const A=JSON.parse('{"title":"CSS","description":"","frontmatter":{},"headers":[],"relativePath":"css.md"}'),p={name:"css.md"},e=l(`<h1 id="css" tabindex="-1">CSS <a class="header-anchor" href="#css" aria-hidden="true">#</a></h1><p>To customize the appearance of the date picker, you can use the following CSS classes.</p><div class="language-css"><button title="Copy Code" class="copy"></button><span class="lang">css</span><pre class="shiki material-theme-palenight" tabindex="0"><code><span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">dp-nav-wrapper</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+import { _ as s, o as n, c as a, a as l } from "./app.7bd6ba26.js";
+const A = JSON.parse(
+    '{"title":"CSS","description":"","frontmatter":{},"headers":[],"relativePath":"css.md"}'
+  ),
+  p = { name: "css.md" },
+  e = l(
+    `<h1 id="css" tabindex="-1">CSS <a class="header-anchor" href="#css" aria-hidden="true">#</a></h1><p>To customize the appearance of the date picker, you can use the following CSS classes.</p><div class="language-css"><button title="Copy Code" class="copy"></button><span class="lang">css</span><pre class="shiki material-theme-palenight" tabindex="0"><code><span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">dp-nav-wrapper</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
 <span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#676E95;font-style:italic;">/* Navigation wrapper for the date picker, which contains month and year toggles and arrow buttons. */</span></span>
 <span class="line"><span style="color:#89DDFF;">}</span></span>
 <span class="line"></span>
@@ -121,4 +127,12 @@ import{_ as s,o as n,c as a,a as l}from"./app.7bd6ba26.js";const A=JSON.parse('{
 <span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">dp-background</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
 <span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#676E95;font-style:italic;">/* Background color of the date picker. */</span></span>
 <span class="line"><span style="color:#89DDFF;">}</span></span>
-<span class="line"></span></code></pre></div>`,3),o=[e];function t(c,r,y,i,D,F){return n(),a("div",null,o)}const d=s(p,[["render",t]]);export{A as __pageData,d as default};
+<span class="line"></span></code></pre></div>`,
+    3
+  ),
+  o = [e];
+function t(c, r, y, i, D, F) {
+  return n(), a("div", null, o);
+}
+const d = s(p, [["render", t]]);
+export { A as __pageData, d as default };

@@ -5,30 +5,30 @@
     @apply w-full flex justify-between border-b-2;
 }
 .dp-nav-month-toggle {
-    @apply p-2 rounded mr-2  font-bold text-slate-600;
+    @apply p-2 rounded mr-2  font-bold text-slate-600 dark:text-white;
 }
 .dp-nav-month-toggle:hover {
-    @apply bg-slate-100;
+    @apply bg-gray-100 dark:bg-gray-600;
 }
 .dp-nav-year-toggle {
-    @apply p-2 rounded mr-2  font-bold text-slate-600;
+    @apply p-2 rounded mr-2  font-bold text-slate-600 dark:text-white;
 }
 .dp-nav-year-toggle:hover {
-    @apply bg-slate-100;
+    @apply bg-gray-100 dark:bg-gray-600;
 }
 .dp-nav-left-arrow,
 .dp-nav-right-arrow {
-    @apply p-2 rounded;
+    @apply p-2 rounded dark:text-white;
 }
 .dp-nav-left-arrow:hover,
 .dp-nav-right-arrow:hover {
-    @apply bg-slate-100;
+    @apply bg-gray-100 dark:bg-gray-600;
 }
 /* End of calendar navigation. */
 
 /* Start of week day name. */
 .dp-weekday {
-    @apply flex items-center justify-center font-bold capitalize p-3 text-slate-600;
+    @apply flex items-center justify-center font-bold capitalize p-3 text-slate-600 dark:text-gray-400;
 }
 .dp-weekday-wrapper {
     @apply grid grid-cols-7;
@@ -43,25 +43,25 @@
 
 /* Start of day button. */
 .dp-single-month-day, .dp-multi-month-day {
-    @apply p-3 w-full h-full rounded font-medium;
+    @apply p-3 w-full h-full rounded text-gray-900 dark:text-white font-semibold text-sm;
 }
 .dp-single-month-day:hover {
-    @apply bg-slate-100;
+    @apply bg-gray-100 dark:bg-gray-600;
 }
 .dp-multi-month-day:hover {
     @apply bg-blue-500;
 }
 .dp-multi-month-day-selected {
-    @apply rounded-none bg-blue-200 border-none;
+    @apply rounded-none bg-gray-200 dark:bg-gray-600 border-none;
 }
 .dp-multi-month-day-selected:hover {
     @apply rounded;
 }
 .dp-multi-month-day-start {
-    @apply rounded-l-full text-white bg-blue-500;
+    @apply rounded-l-full text-white !bg-blue-700;
 }
 .dp-multi-month-day-end {
-    @apply rounded-r-full text-white bg-blue-500;
+    @apply rounded-r-full text-white !bg-blue-700;
 }
 .dp-single-month-day-selected {
     @apply bg-blue-700 text-white;
@@ -70,37 +70,37 @@
     @apply bg-blue-800;
 }
 .dp-day-highlight-today {
-    @apply bg-slate-200;
+    @apply bg-gray-300 dark:text-black;
 }
 /* End of day button. */
 
 /* Start of month picker. */
 .dp-month-select-wrapper {
-    @apply grid grid-cols-4 gap-1 bg-slate-200;
+    @apply grid grid-cols-4 gap-1;
 }
 .dp-month-select-cell {
-    @apply w-full h-[76px] flex justify-center items-center bg-white capitalize font-bold text-slate-600;
+    @apply w-full h-[76px] rounded flex justify-center items-center bg-white dark:bg-gray-700 capitalize font-bold text-slate-600 dark:text-white;
 }
 .dp-month-select-cell:hover {
-    @apply hover:bg-slate-100;
+    @apply bg-slate-100 dark:bg-gray-600;
 }
 .dp-month-select-active-cell {
-    @apply bg-slate-100;
+    @apply rounded bg-slate-100 dark:bg-gray-600;
 }
 /* End of month picker. */
 
 /* Start of year select. */
 .dp-year-select-wrapper {
-    @apply grid grid-cols-4 gap-1 bg-slate-200 max-h-[250px] overflow-visible overflow-x-hidden;
+    @apply grid grid-cols-4 gap-1 max-h-[250px] overflow-visible overflow-x-hidden;
 }
 .dp-year-select-cell {
-    @apply w-full h-[76px] flex justify-center items-center bg-white capitalize font-bold text-slate-600;
+    @apply w-full h-[76px] flex rounded justify-center items-center bg-white dark:bg-gray-700 capitalize font-bold text-slate-600 dark:text-white;
 }
 .dp-year-select-cell:hover {
-    @apply bg-slate-100;
+    @apply bg-slate-100 dark:bg-gray-600;
 }
 .dp-year-select-active-cell {
-    @apply bg-slate-100;
+    @apply rounded bg-slate-100 dark:bg-gray-600;
 }
 /* End of year select. */
 
@@ -109,6 +109,6 @@
     @apply max-h-[350px] overflow-visible overflow-x-hidden;
 }
 .dp-background {
-    @apply bg-white;
+    @apply bg-white dark:bg-gray-700;
 }
 /* End of month. */

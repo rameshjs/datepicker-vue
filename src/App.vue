@@ -8,5 +8,5 @@
 import DatePicker from "./DatePicker.vue";
 import { ref } from "vue";
 
-const date = ref({ start: null, end: null });
+const date = ref({ start: new Date(), end: new Date() });
 </script>

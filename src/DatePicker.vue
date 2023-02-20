@@ -1,5 +1,5 @@
 <template>
-  <div v-if="inline">
+  <div v-if="inline" :id="id">
     <MultiView
       v-if="multiMonth"
       :month="month"
@@ -14,12 +14,12 @@
       :allowRange="allowRange"
     />
   </div>
-  <Popper v-else ref="popover" :show="isOpen">
+  <Popper v-else ref="popover" :show="isOpen" :id="id">
     <slot name="trigger-datepicker" :toggle="toggle">
       <slot
         name="datepicker-input"
-        :start-date="startDate"
-        :end-date="endDate"
+        :startDate="startDate"
+        :endDate="endDate"
         :toggle="toggle"
         :showPopover="showPopover"
         :hidePopover="hidePopover"
@@ -28,6 +28,7 @@
           <Input
             :label="startDateLabel"
             :placeholder="startDatePlaceholder"
+            :name="startDateName"
             v-model="startDate"
             @focus="showPopover"
           />
@@ -35,6 +36,7 @@
             v-if="allowRange || multiMonth"
             :label="endDateLabel"
             :placeholder="endDatePlaceholder"
+            :name="endDateName"
             v-model="endDate"
             @focus="showPopover"
           />
@@ -72,13 +74,21 @@ import MultiView from "./components/MultiView.vue";
 import Input from "./components/Input.vue";
 import Popper from "vue3-popper";
 import { AllProps } from "./utils/props";
-import { formatDateInput, parseTextToDate } from "./utils/datepicker";
+import {
+  formatDateInput,
+  parseTextToDate,
+  parseModelValue,
+} from "./utils/datepicker";
 import { onClickOutside } from "@vueuse/core";
 
 const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
   ...AllProps,
+  id: {
+    type: String,
+    default: "",
+  },
   startDateLabel: {
     type: String,
     default: "",
@@ -92,6 +102,14 @@ const props = defineProps({
     default: "",
   },
   endDatePlaceholder: {
+    type: String,
+    default: "",
+  },
+  startDateName: {
+    type: String,
+    default: "",
+  },
+  endDateName: {
     type: String,
     default: "",
   },
@@ -149,7 +167,7 @@ const updateInput = (start, end) => {
 /** Emits selected date */
 const selectedDate = computed({
   get() {
-    return props.modelValue;
+    return parseModelValue(props.modelValue);
   },
   set(date) {
     updateModel(date.start, date.end);

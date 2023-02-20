@@ -13,7 +13,7 @@ export const AllProps = {
   },
   inline: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   allowRange: {
     type: Boolean,

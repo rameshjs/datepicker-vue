@@ -18,8 +18,8 @@
     <slot name="trigger-datepicker" :toggle="toggle">
       <slot
         name="datepicker-input"
-        :start-date="startDate"
-        :end-date="endDate"
+        :startDate="startDate"
+        :endDate="endDate"
         :toggle="toggle"
         :showPopover="showPopover"
         :hidePopover="hidePopover"

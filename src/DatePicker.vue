@@ -26,6 +26,7 @@
       >
         <div class="w-full flex flex-col lg:flex-row">
           <Input
+            :id="id"
             :label="startDateLabel"
             :placeholder="startDatePlaceholder"
             :name="startDateName"
@@ -34,6 +35,7 @@
           />
           <Input
             v-if="allowRange || multiMonth"
+            :id="id"
             :label="endDateLabel"
             :placeholder="endDatePlaceholder"
             :name="endDateName"
@@ -81,6 +83,10 @@ const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
   ...AllProps,
+  id: {
+    type: String,
+    default: "",
+  },
   startDateLabel: {
     type: String,
     default: "",

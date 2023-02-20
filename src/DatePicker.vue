@@ -28,6 +28,7 @@
           <Input
             :label="startDateLabel"
             :placeholder="startDatePlaceholder"
+            :name="startDateName"
             v-model="startDate"
             @focus="showPopover"
           />
@@ -35,6 +36,7 @@
             v-if="allowRange || multiMonth"
             :label="endDateLabel"
             :placeholder="endDatePlaceholder"
+            :name="endDateName"
             v-model="endDate"
             @focus="showPopover"
           />
@@ -92,6 +94,14 @@ const props = defineProps({
     default: "",
   },
   endDatePlaceholder: {
+    type: String,
+    default: "",
+  },
+  startDateName: {
+    type: String,
+    default: "",
+  },
+  endDateName: {
     type: String,
     default: "",
   },

@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/v/@rameshjs/datepicker-vue)](https://www.npmjs.com/package/@rameshjs/datepicker-vue)
 ![Downloads](https://img.shields.io/npm/dt/@rameshjs/datepicker-vue)
 
-## [DOCUMENTATION](https://datepicker-vue-docs.readthedocs.io/en/latest/index.html)
+## [DOCUMENTATION](https://rameshjs.github.io/datepicker-vue/)
 
 ### [Demo](https://stackblitz.com/edit/rameshjsdatepicker-vue?file=src%2Fcomponents%2FPlayground.vue)
 

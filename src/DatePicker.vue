@@ -72,7 +72,7 @@ import { computed, ref, watch } from "vue";
 import SingleView from "./components/SingleView.vue";
 import MultiView from "./components/MultiView.vue";
 import Input from "./components/Input.vue";
-import Popper from "vue3-popper";
+import Popper from "vue3-popper/dist/popper.esm";
 import { AllProps } from "./utils/props";
 import {
   formatDateInput,

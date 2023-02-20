@@ -1,5 +1,5 @@
 <template>
-  <div v-if="inline">
+  <div v-if="inline" :id="id">
     <MultiView
       v-if="multiMonth"
       :month="month"
@@ -14,7 +14,7 @@
       :allowRange="allowRange"
     />
   </div>
-  <Popper v-else ref="popover" :show="isOpen">
+  <Popper v-else ref="popover" :show="isOpen" :id="id">
     <slot name="trigger-datepicker" :toggle="toggle">
       <slot
         name="datepicker-input"
@@ -26,7 +26,6 @@
       >
         <div class="w-full flex flex-col lg:flex-row">
           <Input
-            :id="id"
             :label="startDateLabel"
             :placeholder="startDatePlaceholder"
             :name="startDateName"
@@ -35,7 +34,6 @@
           />
           <Input
             v-if="allowRange || multiMonth"
-            :id="id"
             :label="endDateLabel"
             :placeholder="endDatePlaceholder"
             :name="endDateName"

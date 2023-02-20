@@ -76,7 +76,11 @@ import MultiView from "./components/MultiView.vue";
 import Input from "./components/Input.vue";
 import Popper from "vue3-popper";
 import { AllProps } from "./utils/props";
-import { formatDateInput, parseTextToDate } from "./utils/datepicker";
+import {
+  formatDateInput,
+  parseTextToDate,
+  parseModelValue,
+} from "./utils/datepicker";
 import { onClickOutside } from "@vueuse/core";
 
 const emit = defineEmits(["update:modelValue"]);
@@ -165,7 +169,7 @@ const updateInput = (start, end) => {
 /** Emits selected date */
 const selectedDate = computed({
   get() {
-    return props.modelValue;
+    return parseModelValue(props.modelValue);
   },
   set(date) {
     updateModel(date.start, date.end);

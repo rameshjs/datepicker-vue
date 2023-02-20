@@ -167,3 +167,21 @@ export const isSameDay = (day1, day2) => {
   }
   return false;
 };
+
+/** Parse model value */
+export const parseModelValue = (model) => {
+  if (isValid(model.start) && isDate(model.end)) {
+    const start = new Date(
+      model.start.getFullYear(),
+      model.start.getMonth(),
+      model.start.getDate()
+    );
+    const end = new Date(
+      model.end.getFullYear(),
+      model.end.getMonth(),
+      model.end.getDate()
+    );
+    return { start: start, end: end };
+  }
+  return model;
+};

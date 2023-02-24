@@ -14,7 +14,7 @@
       :allowRange="allowRange"
     />
   </div>
-  <Popper v-else class="w-full m-0 b-0" ref="popover" :show="isOpen" :id="id">
+  <Popover v-else ref="popover" :show="isOpen" :id="id">
     <slot name="trigger-datepicker" :toggle="toggle">
       <slot
         name="datepicker-input"
@@ -66,14 +66,13 @@
         />
       </div>
     </template>
-  </Popper>
+  </Popover>
 </template>
 <script setup>
 import { computed, ref, watch } from "vue";
 import SingleView from "./components/SingleView.vue";
 import MultiView from "./components/MultiView.vue";
 import Input from "./components/Input.vue";
-import Popper from "vue3-popper/dist/popper.esm";
 import { AllProps } from "./utils/props";
 import {
   formatDateInput,
@@ -81,6 +80,7 @@ import {
   parseModelValue,
 } from "./utils/datepicker";
 import { onClickOutside } from "@vueuse/core";
+import Popover from "popover-vue";
 
 const emit = defineEmits(["update:modelValue"]);
 

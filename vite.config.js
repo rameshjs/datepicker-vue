@@ -25,12 +25,12 @@ export default defineConfig({
       fileName: "datepicker-vue",
     },
     rollupOptions: {
-      external: ["vue", "date-fns", "vue3-popper", "tailwindcss"],
+      external: ["vue", "date-fns", "popover-vue", "tailwindcss"],
       output: {
         globals: {
           vue: "Vue",
           "date-fns": "date-fn",
-          "vue3-popper": "vue3-popper",
+          "popover-vue": "popover-vue",
           "@vueuse/core": "@vueuse/core",
           tailwindcss: "tailwindcss",
         },

@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="w-full">
     <label
       v-if="label"
       :for="id"
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
       >{{ label }}</label
     >
-    <div class="relative mb-6">
+    <div class="relative">
       <div
         class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
       >

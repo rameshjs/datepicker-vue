@@ -30,6 +30,7 @@
             :label="startDateLabel"
             :placeholder="startDatePlaceholder"
             :name="startDateName"
+            :required="required"
             v-model="startDate"
             @focus="showPopover"
           />
@@ -38,6 +39,7 @@
             :label="endDateLabel"
             :placeholder="endDatePlaceholder"
             :name="endDateName"
+            :required="required"
             v-model="endDate"
             @focus="showPopover"
           />
@@ -113,6 +115,10 @@ const props = defineProps({
   endDateName: {
     type: String,
     default: "",
+  },
+  required: {
+    type: Boolean,
+    default: false,
   },
   formatDateInput: {
     type: String,

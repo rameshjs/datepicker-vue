@@ -3,9 +3,16 @@
     <label
       v-if="label"
       :for="id"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >{{ label }}</label
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex"
     >
+      {{ label }}
+      <span
+        v-if="required"
+        class="block ml-2 text-sm font-medium text-gray-900 dark:text-white"
+      >
+        *
+      </span>
+    </label>
     <div class="relative">
       <div
         class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
@@ -69,6 +76,10 @@ const props = defineProps({
   modelValue: {
     type: String,
     default: "",
+  },
+  required: {
+    type: Boolean,
+    default: false,
   },
 });
 

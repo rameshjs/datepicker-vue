@@ -30,6 +30,8 @@
             :label="startDateLabel"
             :placeholder="startDatePlaceholder"
             :name="startDateName"
+            :required="required"
+            :error="startDateError"
             v-model="startDate"
             @focus="showPopover"
           />
@@ -38,6 +40,8 @@
             :label="endDateLabel"
             :placeholder="endDatePlaceholder"
             :name="endDateName"
+            :required="required"
+            :error="endDateError"
             v-model="endDate"
             @focus="showPopover"
           />
@@ -113,6 +117,18 @@ const props = defineProps({
   endDateName: {
     type: String,
     default: "",
+  },
+  startDateError: {
+    type: String,
+    default: "",
+  },
+  endDateError: {
+    type: String,
+    default: "",
+  },
+  required: {
+    type: Boolean,
+    default: false,
   },
   formatDateInput: {
     type: String,

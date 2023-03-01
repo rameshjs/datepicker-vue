@@ -3,13 +3,17 @@
     <label
       v-if="label"
       :for="id"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >{{ label }}</label
+      :class="{
+        'block p-2 text-sm font-medium flex': true,
+        'text-gray-900 dark:text-white': !error,
+        'text-red-500': error,
+      }"
     >
+      {{ label }}
+      <span v-if="required" class="ml-2"> * </span>
+    </label>
     <div class="relative">
-      <div
-        class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-      >
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <slot
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +33,11 @@
       <input
         type="text"
         :id="id"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        :class="{
+          'bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500': true,
+          'border-gray-300 dark:border-gray-600': !error,
+          'border-red-500': error,
+        }"
         :placeholder="placeholder"
         :name="name"
         v-model="inputData"
@@ -37,6 +45,9 @@
         @blur="blur"
       />
     </div>
+    <span v-if="error" class="block p-2 text-xs font-medium text-red-500">
+      {{ error }}
+    </span>
   </div>
 </template>
 <script>
@@ -67,6 +78,14 @@ const props = defineProps({
     default: "",
   },
   modelValue: {
+    type: String,
+    default: "",
+  },
+  required: {
+    type: Boolean,
+    default: false,
+  },
+  error: {
     type: String,
     default: "",
   },

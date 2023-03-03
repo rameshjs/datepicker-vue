@@ -4,12 +4,14 @@
       v-if="multiMonth"
       :month="month"
       :year="year"
+      :inline="inline"
       v-model="selectedDate"
     />
     <SingleView
       v-else
       :month="month"
       :year="year"
+      :inline="inline"
       v-model="selectedDate"
       :allowRange="allowRange"
     />
@@ -49,12 +51,7 @@
       </slot>
     </slot>
     <template #content>
-      <div
-        :class="{
-          'drop-shadow-lg': true,
-          'w-[400px]': !multiMonth,
-        }"
-      >
+      <div class="drop-shadow-lg w-full">
         <MultiView
           v-if="multiMonth"
           :month="month"

@@ -29,7 +29,3 @@ jobs:
       - name: Build
         working-directory: ./docs
         run: yarn run docs:build
-      - uses: actions/configure-pages@v2
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v1

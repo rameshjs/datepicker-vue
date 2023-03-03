@@ -1,5 +1,9 @@
 <template>
-  <div class="dp-background rounded" ref="singleViewRef">
+  <div :class="{
+    'dp-background rounded': true,
+    'w-[370px]': !inline,
+    'w-full': inline
+  }" ref="singleViewRef">
     <CalendarNavigation
       v-model:month="selectedMonth"
       v-model:year="selectedYear"

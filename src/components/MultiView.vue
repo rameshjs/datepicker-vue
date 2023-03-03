@@ -4,7 +4,7 @@
       :class="{
         'dp-background': true,
         'w-full': inline,
-        'w-[400px]': !inline,
+        'w-[370px]': !inline,
       }"
     >
       <CalendarNavigation
@@ -26,7 +26,7 @@
       />
     </div>
     <div
-      :class="{ 'dp-background': true, 'w-full': inline, 'w-[400px]': !inline }"
+      :class="{ 'dp-background': true, 'w-full': inline, 'w-[370px]': !inline }"
     >
       <CalendarNavigation
         v-model:month="secondCalendarMonthAndYear.month"

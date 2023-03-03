@@ -64,10 +64,10 @@
     @apply rounded-r-full text-white !bg-blue-700;
 }
 .dp-single-month-day-selected {
-    @apply bg-blue-700 text-white;
+    @apply bg-blue-600 text-white;
 }
 .dp-single-month-day-selected:hover {
-    @apply bg-blue-800;
+    @apply bg-blue-700 dark:bg-blue-700;
 }
 .dp-day-highlight-today {
     @apply bg-gray-300 dark:text-black;

@@ -9,8 +9,6 @@ on:
       - main
 jobs:
   deploy:
-    with:
-      path: docs
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -25,6 +23,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+        working-directory: ./docs
       - run: yarn install
       - name: Build
         run: yarn run docs:build
